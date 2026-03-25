@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TreeMeasure Pro – Suport / Support</title>
+  <style>
+    :root {
+      --green-dark:  #1a3d2b;
+      --green-mid:   #2d6a4f;
+      --green-light: #52b788;
+      --accent:      #74c69d;
+      --bg:          #f8faf9;
+      --card:        #ffffff;
+      --text:        #1b2e23;
+      --muted:       #5c7a6a;
+      --border:      #d8ece2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      color: #fff;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    header .icon {
+      font-size: 64px;
+      display: block;
+      margin-bottom: 16px;
+    }
+    header h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    header p.tagline {
+      margin-top: 8px;
+      font-size: 16px;
+      opacity: 0.85;
+    }
+
+    /* ── Lang toggle ── */
+    .lang-bar {
+      background: var(--green-dark);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--green-light);
+    }
+    .lang-bar button {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: #fff;
+      border-radius: 20px;
+      padding: 6px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .lang-bar button.active,
+    .lang-bar button:hover {
+      background: var(--green-light);
+      border-color: var(--green-light);
+      color: var(--green-dark);
+    }
+
+    /* ── Main layout ── */
+    main {
+      max-width: 800px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Section ── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green-mid);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section h2 .ico { font-size: 22px; }
+
+    /* ── FAQ ── */
+    details {
+      border-top: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    details:first-of-type { border-top: none; }
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      font-size: 22px;
+      color: var(--green-light);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* ── Feature list ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .feature-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .feature-card .f-icon { font-size: 32px; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; font-weight: 600; color: var(--green-dark); }
+    .feature-card small { font-size: 12px; color: var(--muted); }
+
+    /* ── Contact ── */
+    .contact-box {
+      background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      color: #fff;
+    }
+    .contact-box p { opacity: 0.9; margin-bottom: 20px; font-size: 15px; }
+    .contact-box a.btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 36px;
+      border-radius: 50px;
+      transition: opacity 0.2s;
+    }
+    .contact-box a.btn:hover { opacity: 0.85; }
+    .contact-box .email-text {
+      margin-top: 14px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Language sections ── */
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="icon">🌲</span>
+  <h1>TreeMeasure Pro</h1>
+  <p class="tagline">Măsurători forestiere precise · Precise forestry measurements</p>
+</header>
+
+<div class="lang-bar">
+  <button onclick="setLang('ro')" id="btn-ro" class="active">🇷🇴 Română</button>
+  <button onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
+</div>
+
+<main>
+
+  <!-- ═══════════════ ROMÂNĂ ═══════════════ -->
+  <div data-lang="ro" class="visible">
+
+    <div class="section">
+      <h2><span class="ico">🌿</span>Despre aplicație</h2>
+      <p>
+        <strong>TreeMeasure Pro</strong> este o aplicație iOS profesională pentru inventariere forestieră,
+        concepută pentru silvicultori, evaluatori de teren și iubitori ai naturii. Folosind LiDAR,
+        ARKit și senzori de mișcare, aplicația măsoară cu precizie diametrul, înălțimea și volumul
+        arborilor direct din teren, fără instrumente suplimentare.
+      </p>
+      <div class="features" style="margin-top:20px">
+        <div class="feature-card">
+          <div class="f-icon">📏</div>
+          <p>Diametru LiDAR</p>
+          <small>Scanare precisă cu senzor de adâncime</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">📐</div>
+          <p>Înălțime AR</p>
+          <small>Clinometru augmentat în timp real</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🌳</div>
+          <p>Parcele fixe & Bitterlich</p>
+          <small>Metode silvice standard</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">📊</div>
+          <p>Export date</p>
+          <small>CSV / rapoarte pentru birou</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🗺️</div>
+          <p>Hartă GPS</p>
+          <small>Localizare înregistrări pe hartă</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🧮</div>
+          <p>Volum lemn</p>
+          <small>Coeficienți de formă incluse</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">❓</span>Întrebări frecvente</h2>
+
+      <details>
+        <summary>Ce dispozitive sunt compatibile?</summary>
+        <p>TreeMeasure Pro necesită un iPhone sau iPad cu senzor LiDAR (iPhone 12 Pro și versiunile ulterioare, iPad Pro 2020+) și iOS 16 sau mai nou.</p>
+      </details>
+
+      <details>
+        <summary>Măsurătorile funcționează fără internet?</summary>
+        <p>Da. Toate măsurătorile — diametru, înălțime, volum, parcele — funcționează complet offline. Conexiunea la internet este necesară doar pentru export sau sincronizare.</p>
+      </details>
+
+      <details>
+        <summary>Cât de precis este diametrul măsurat prin LiDAR?</summary>
+        <p>În condiții optime (lumină bună, coajă netedă), precizia este de ±1–2 cm față de clupa tradițională, la distanțe de până la 3–4 m.</p>
+      </details>
+
+      <details>
+        <summary>Cum funcționează metoda Bitterlich?</summary>
+        <p>Aplicația simulează un relascop optic. Ții telefonul la distanță de braț (sau la distanță calibrată) și numeri arborii incluși în unghi. Suma se convertește automat în suprafața de bază la hectar.</p>
+      </details>
+
+      <details>
+        <summary>Pot exporta datele în Excel?</summary>
+        <p>Da. Export CSV compatibil cu Excel, Numbers și orice aplicație de calcul tabelar. Fiecare înregistrare conține specia, diametrul, înălțimea, volumul și coordonatele GPS.</p>
+      </details>
+
+      <details>
+        <summary>Ce este abonamentul Pro și ce include?</summary>
+        <p>Versiunea gratuită permite un număr limitat de înregistrări. Abonamentul Pro deblochează înregistrări nelimitate, export avansat, toate metodele silvice și actualizările viitoare.</p>
+      </details>
+
+      <details>
+        <summary>Cum anulez abonamentul?</summary>
+        <p>Abonamentul se administrează din <strong>Setări iOS → ID Apple → Abonamente</strong>. Poți anula oricând; accesul rămâne activ până la sfârșitul perioadei plătite.</p>
+      </details>
+
+      <details>
+        <summary>Datele mele sunt în siguranță?</summary>
+        <p>Toate datele sunt stocate local pe dispozitivul tău. Nu colectăm și nu transmitem date personale sau de inventar pe serverele noastre.</p>
+      </details>
+    </div>
+
+    <div class="contact-box">
+      <h2 style="font-size:20px; font-weight:700; margin-bottom:12px;">Ai nevoie de ajutor?</h2>
+      <p>Echipa noastră răspunde în termen de 24–48 de ore în zilele lucrătoare. Descrie problema cât mai detaliat (model iPhone, versiune iOS) pentru un răspuns rapid.</p>
+      <a class="btn" href="mailto:nicolaflorin00@icloud.com?subject=TreeMeasure%20Pro%20-%20Suport">Trimite un email</a>
+      <div class="email-text">nicolaflorin00@icloud.com</div>
+    </div>
+
+  </div><!-- /ro -->
+
+
+  <!-- ═══════════════ ENGLISH ═══════════════ -->
+  <div data-lang="en">
+
+    <div class="section">
+      <h2><span class="ico">🌿</span>About the App</h2>
+      <p>
+        <strong>TreeMeasure Pro</strong> is a professional iOS app for forest inventory,
+        designed for foresters, field assessors, and nature enthusiasts. Using LiDAR,
+        ARKit, and motion sensors, it accurately measures tree diameter, height, and
+        volume directly in the field — no additional instruments required.
+      </p>
+      <div class="features" style="margin-top:20px">
+        <div class="feature-card">
+          <div class="f-icon">📏</div>
+          <p>LiDAR Diameter</p>
+          <small>Precise depth-sensor scanning</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">📐</div>
+          <p>AR Height</p>
+          <small>Augmented clinometer in real time</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🌳</div>
+          <p>Fixed Plots & Bitterlich</p>
+          <small>Standard forestry methods</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">📊</div>
+          <p>Data Export</p>
+          <small>CSV / reports for office use</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🗺️</div>
+          <p>GPS Map</p>
+          <small>Geo-located records on map</small>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🧮</div>
+          <p>Wood Volume</p>
+          <small>Built-in form factor tables</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">❓</span>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>Which devices are compatible?</summary>
+        <p>TreeMeasure Pro requires an iPhone or iPad with a LiDAR sensor (iPhone 12 Pro and later, iPad Pro 2020+) running iOS 16 or later.</p>
+      </details>
+
+      <details>
+        <summary>Do measurements work offline?</summary>
+        <p>Yes. All measurements — diameter, height, volume, plots — work completely offline. An internet connection is only needed for export or sync.</p>
+      </details>
+
+      <details>
+        <summary>How accurate is the LiDAR diameter measurement?</summary>
+        <p>Under optimal conditions (good light, smooth bark), accuracy is within ±1–2 cm compared to a traditional caliper, at distances up to 3–4 m.</p>
+      </details>
+
+      <details>
+        <summary>How does the Bitterlich method work?</summary>
+        <p>The app simulates an optical relascope. Hold the phone at arm's length (or a calibrated distance) and count the trees included in the angle. The total is automatically converted to basal area per hectare.</p>
+      </details>
+
+      <details>
+        <summary>Can I export data to Excel?</summary>
+        <p>Yes. The CSV export is compatible with Excel, Numbers, and any spreadsheet app. Each record includes species, diameter, height, volume, and GPS coordinates.</p>
+      </details>
+
+      <details>
+        <summary>What is the Pro subscription and what does it include?</summary>
+        <p>The free version allows a limited number of records. The Pro subscription unlocks unlimited records, advanced export, all forestry methods, and future updates.</p>
+      </details>
+
+      <details>
+        <summary>How do I cancel my subscription?</summary>
+        <p>Subscriptions are managed from <strong>iOS Settings → Apple ID → Subscriptions</strong>. You can cancel at any time; access remains active until the end of the paid period.</p>
+      </details>
+
+      <details>
+        <summary>Is my data safe?</summary>
+        <p>All data is stored locally on your device. We do not collect or transmit personal or inventory data to any servers.</p>
+      </details>
+    </div>
+
+    <div class="contact-box">
+      <h2 style="font-size:20px; font-weight:700; margin-bottom:12px;">Need Help?</h2>
+      <p>Our team responds within 24–48 hours on business days. Please describe your issue in as much detail as possible (iPhone model, iOS version) for a faster response.</p>
+      <a class="btn" href="mailto:nicolaflorin00@icloud.com?subject=TreeMeasure%20Pro%20-%20Support">Send an Email</a>
+      <div class="email-text">nicolaflorin00@icloud.com</div>
+    </div>
+
+  </div><!-- /en -->
+
+</main>
+
+<footer>
+  &copy; <span id="year"></span> TreeMeasure Pro · <a href="mailto:nicolaflorin00@icloud.com" style="color:var(--green-mid)">nicolaflorin00@icloud.com</a>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.querySelectorAll('.lang-bar button').forEach(btn => {
+      btn.classList.toggle('active', btn.id === 'btn-' + lang);
+    });
+    document.documentElement.lang = lang;
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
