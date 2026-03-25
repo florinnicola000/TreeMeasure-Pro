@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TreeMeasure Pro – Politică de Confidențialitate / Privacy Policy</title>
+  <style>
+    :root {
+      --green-dark:  #1a3d2b;
+      --green-mid:   #2d6a4f;
+      --green-light: #52b788;
+      --accent:      #74c69d;
+      --bg:          #f8faf9;
+      --card:        #ffffff;
+      --text:        #1b2e23;
+      --muted:       #5c7a6a;
+      --border:      #d8ece2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      color: #fff;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    header .icon {
+      font-size: 64px;
+      display: block;
+      margin-bottom: 16px;
+    }
+    header h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    header p.tagline {
+      margin-top: 8px;
+      font-size: 16px;
+      opacity: 0.85;
+    }
+    header p.updated {
+      margin-top: 12px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    /* ── Lang toggle ── */
+    .lang-bar {
+      background: var(--green-dark);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--green-light);
+    }
+    .lang-bar button {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: #fff;
+      border-radius: 20px;
+      padding: 6px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .lang-bar button.active,
+    .lang-bar button:hover {
+      background: var(--green-light);
+      border-color: var(--green-light);
+      color: var(--green-dark);
+    }
+
+    /* ── Main layout ── */
+    main {
+      max-width: 800px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Section ── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .section h2 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--green-mid);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section h2 .ico { font-size: 22px; }
+    .section p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul {
+      margin: 10px 0 10px 20px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .section ul li { margin-bottom: 6px; }
+
+    /* ── Highlight box ── */
+    .highlight {
+      background: #edf7f1;
+      border-left: 4px solid var(--green-light);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 15px;
+      color: var(--green-dark);
+      font-weight: 500;
+    }
+
+    /* ── Summary table ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 6px;
+    }
+    .summary-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .summary-card .s-icon { font-size: 26px; margin-bottom: 6px; }
+    .summary-card .s-label { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .summary-card .s-value { font-size: 14px; font-weight: 600; color: var(--green-dark); margin-top: 2px; }
+
+    /* ── Contact ── */
+    .contact-box {
+      background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      color: #fff;
+    }
+    .contact-box p { opacity: 0.9; margin-bottom: 20px; font-size: 15px; }
+    .contact-box a.btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 36px;
+      border-radius: 50px;
+      transition: opacity 0.2s;
+    }
+    .contact-box a.btn:hover { opacity: 0.85; }
+    .contact-box .email-text {
+      margin-top: 14px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--green-mid); }
+
+    /* ── Language sections ── */
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="icon">🔒</span>
+  <h1>TreeMeasure Pro</h1>
+  <p class="tagline">Politică de Confidențialitate · Privacy Policy</p>
+  <p class="updated">Ultima actualizare / Last updated: 25 martie 2026</p>
+</header>
+
+<div class="lang-bar">
+  <button onclick="setLang('ro')" id="btn-ro" class="active">🇷🇴 Română</button>
+  <button onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
+</div>
+
+<main>
+
+  <!-- ═══════════════ ROMÂNĂ ═══════════════ -->
+  <div data-lang="ro" class="visible">
+
+    <div class="section">
+      <h2><span class="ico">📋</span>Rezumat</h2>
+      <div class="highlight">
+        TreeMeasure Pro nu colectează, nu stochează și nu transmite date personale. Toate datele create de tine rămân exclusiv pe dispozitivul tău.
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="s-icon">📍</div>
+          <div class="s-label">Date de localizare</div>
+          <div class="s-value">Stocate local, nu transmise</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">👤</div>
+          <div class="s-label">Date personale</div>
+          <div class="s-value">Nu sunt colectate</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">📡</div>
+          <div class="s-label">Servere externe</div>
+          <div class="s-value">Nu sunt folosite</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">🍪</div>
+          <div class="s-label">Tracking / Cookies</div>
+          <div class="s-value">Nu există</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">🤝</div>
+          <div class="s-label">Terțe părți</div>
+          <div class="s-value">Nu sunt partajate date</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">🧒</div>
+          <div class="s-label">Copii sub 13 ani</div>
+          <div class="s-value">Nu se colectează date</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">🌿</span>Introducere</h2>
+      <p>
+        Această Politică de Confidențialitate descrie modul în care aplicația <strong>TreeMeasure Pro</strong>
+        ("aplicația", "noi") tratează informațiile tale. Ne angajăm să protejăm confidențialitatea
+        utilizatorilor noștri.
+      </p>
+      <p>
+        Prin utilizarea aplicației, ești de acord cu termenii descriși în această politică.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">📊</span>Ce date procesăm</h2>
+      <p><strong>Date generate de tine (stocate exclusiv local):</strong></p>
+      <ul>
+        <li>Măsurători de arbori (diametru, înălțime, volum, specie)</li>
+        <li>Coordonate GPS asociate înregistrărilor de inventar</li>
+        <li>Fotografii capturate în aplicație (dacă este cazul)</li>
+        <li>Preferințe și setări ale aplicației</li>
+      </ul>
+      <p style="margin-top:12px"><strong>Date tehnice minime (fără identificare personală):</strong></p>
+      <ul>
+        <li>Rapoarte de erori anonime generate de sistemul Apple (dacă ai activat această opțiune în iOS)</li>
+        <li>Statistici anonime de utilizare prin App Store Connect (furnizate de Apple, fără identificare individuală)</li>
+      </ul>
+      <div class="highlight">
+        Nu colectăm: nume, email, număr de telefon, date de cont, adresă IP sau orice alt identificator personal.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">📍</span>Localizare GPS</h2>
+      <p>
+        Aplicația solicită acces la localizare pentru a asocia înregistrările de inventar cu coordonate GPS
+        și pentru a le afișa pe hartă.
+      </p>
+      <ul>
+        <li>Localizarea este utilizată <strong>exclusiv în interiorul aplicației</strong></li>
+        <li>Coordonatele GPS sunt stocate <strong>local pe dispozitivul tău</strong></li>
+        <li>Nu transmitem coordonate sau trasee către niciun server extern</li>
+        <li>Poți revoca permisiunea oricând din <strong>Setări iOS → Confidențialitate → Localizare</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">📷</span>Cameră și LiDAR</h2>
+      <p>
+        Aplicația folosește camera și senzorul LiDAR pentru măsurători AR în timp real.
+      </p>
+      <ul>
+        <li>Imaginile camerei sunt procesate <strong>în timp real, pe dispozitiv</strong></li>
+        <li>Nu înregistrăm, nu stocăm și nu transmitem fluxul video</li>
+        <li>Fotografiile salvate explicit de tine rămân în galeria locală a dispozitivului</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">💳</span>Abonamente și plăți</h2>
+      <p>
+        Plățile pentru abonamentul Pro sunt procesate exclusiv prin <strong>Apple App Store</strong>.
+        Nu avem acces la datele tale de card sau de plată — acestea sunt gestionate în totalitate de Apple.
+      </p>
+      <p>
+        Primim de la Apple doar confirmarea stării abonamentului (activ/inactiv), fără date financiare personale.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">🤝</span>Partajarea datelor cu terțe părți</h2>
+      <p>
+        <strong>Nu vindem, nu închiriem și nu partajăm datele tale</strong> cu nicio terță parte,
+        cu excepția serviciilor Apple menționate mai sus (rapoarte de erori anonime, confirmare abonament),
+        care sunt reglementate de <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Politica de Confidențialitate Apple</a>.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">🔐</span>Securitatea datelor</h2>
+      <p>
+        Datele tale de inventar sunt stocate în containerul privat al aplicației pe dispozitivul tău,
+        protejat de mecanismele de securitate ale iOS (criptare hardware, sandbox de aplicație).
+        Numai tu ai acces la aceste date.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">🧒</span>Copii</h2>
+      <p>
+        Aplicația nu este destinată copiilor sub 13 ani și nu colectăm cu bună știință date de la
+        această categorie de vârstă. Dacă ești părinte și crezi că un copil a furnizat informații
+        personale, contactează-ne la adresa de email de mai jos.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">✏️</span>Modificări ale politicii</h2>
+      <p>
+        Putem actualiza această politică periodic. Orice modificare semnificativă va fi comunicată
+        printr-o notificare în aplicație sau prin actualizarea datei "Ultima actualizare" din această pagină.
+        Continuarea utilizării aplicației după publicarea modificărilor constituie acceptul tău.
+      </p>
+    </div>
+
+    <div class="contact-box">
+      <h2 style="font-size:20px; font-weight:700; margin-bottom:12px;">Întrebări despre confidențialitate?</h2>
+      <p>Dacă ai întrebări sau solicitări legate de datele tale personale, ne poți contacta oricând.</p>
+      <a class="btn" href="mailto:nicolaflorin00@icloud.com?subject=TreeMeasure%20Pro%20-%20Confidentialitate">Trimite un email</a>
+      <div class="email-text">nicolaflorin00@icloud.com</div>
+    </div>
+
+  </div><!-- /ro -->
+
+
+  <!-- ═══════════════ ENGLISH ═══════════════ -->
+  <div data-lang="en">
+
+    <div class="section">
+      <h2><span class="ico">📋</span>Summary</h2>
+      <div class="highlight">
+        TreeMeasure Pro does not collect, store, or transmit personal data. All data you create stays exclusively on your device.
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="s-icon">📍</div>
+          <div class="s-label">Location data</div>
+          <div class="s-value">Stored locally, not transmitted</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">👤</div>
+          <div class="s-label">Personal data</div>
+          <div class="s-value">Not collected</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">📡</div>
+          <div class="s-label">External servers</div>
+          <div class="s-value">None used</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">🍪</div>
+          <div class="s-label">Tracking / Cookies</div>
+          <div class="s-value">None</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">🤝</div>
+          <div class="s-label">Third parties</div>
+          <div class="s-value">No data shared</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-icon">🧒</div>
+          <div class="s-label">Children under 13</div>
+          <div class="s-value">No data collected</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">🌿</span>Introduction</h2>
+      <p>
+        This Privacy Policy describes how <strong>TreeMeasure Pro</strong> ("the app", "we") handles
+        your information. We are committed to protecting the privacy of our users.
+      </p>
+      <p>
+        By using the app, you agree to the terms described in this policy.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">📊</span>What data we process</h2>
+      <p><strong>Data you generate (stored exclusively on-device):</strong></p>
+      <ul>
+        <li>Tree measurements (diameter, height, volume, species)</li>
+        <li>GPS coordinates associated with inventory records</li>
+        <li>Photos captured within the app (if applicable)</li>
+        <li>App preferences and settings</li>
+      </ul>
+      <p style="margin-top:12px"><strong>Minimal technical data (no personal identification):</strong></p>
+      <ul>
+        <li>Anonymous crash reports generated by Apple's system (if you have enabled this in iOS settings)</li>
+        <li>Anonymous usage statistics via App Store Connect (provided by Apple, no individual identification)</li>
+      </ul>
+      <div class="highlight">
+        We do not collect: name, email, phone number, account data, IP address, or any other personal identifier.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">📍</span>GPS Location</h2>
+      <p>
+        The app requests location access to associate inventory records with GPS coordinates
+        and display them on a map.
+      </p>
+      <ul>
+        <li>Location is used <strong>exclusively within the app</strong></li>
+        <li>GPS coordinates are stored <strong>locally on your device</strong></li>
+        <li>We do not transmit coordinates or routes to any external server</li>
+        <li>You can revoke permission at any time from <strong>iOS Settings → Privacy → Location Services</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">📷</span>Camera and LiDAR</h2>
+      <p>
+        The app uses the camera and LiDAR sensor for real-time AR measurements.
+      </p>
+      <ul>
+        <li>Camera frames are processed <strong>in real time, on-device</strong></li>
+        <li>We do not record, store, or transmit the video stream</li>
+        <li>Photos you explicitly save remain in your device's local gallery</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">💳</span>Subscriptions and Payments</h2>
+      <p>
+        Payments for the Pro subscription are processed exclusively through the <strong>Apple App Store</strong>.
+        We have no access to your card or payment details — these are managed entirely by Apple.
+      </p>
+      <p>
+        We receive from Apple only confirmation of subscription status (active/inactive), with no personal financial data.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">🤝</span>Sharing Data with Third Parties</h2>
+      <p>
+        <strong>We do not sell, rent, or share your data</strong> with any third party,
+        with the exception of the Apple services mentioned above (anonymous crash reports, subscription confirmation),
+        which are governed by <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Apple's Privacy Policy</a>.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">🔐</span>Data Security</h2>
+      <p>
+        Your inventory data is stored in the app's private container on your device,
+        protected by iOS security mechanisms (hardware encryption, app sandbox).
+        Only you have access to this data.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">🧒</span>Children</h2>
+      <p>
+        The app is not intended for children under 13 and we do not knowingly collect
+        data from this age group. If you are a parent and believe a child has provided
+        personal information, please contact us at the email address below.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">✏️</span>Changes to This Policy</h2>
+      <p>
+        We may update this policy from time to time. Any significant changes will be communicated
+        via an in-app notification or by updating the "Last updated" date on this page.
+        Continued use of the app after changes are published constitutes your acceptance.
+      </p>
+    </div>
+
+    <div class="contact-box">
+      <h2 style="font-size:20px; font-weight:700; margin-bottom:12px;">Privacy Questions?</h2>
+      <p>If you have any questions or requests regarding your personal data, feel free to contact us at any time.</p>
+      <a class="btn" href="mailto:nicolaflorin00@icloud.com?subject=TreeMeasure%20Pro%20-%20Privacy">Send an Email</a>
+      <div class="email-text">nicolaflorin00@icloud.com</div>
+    </div>
+
+  </div><!-- /en -->
+
+</main>
+
+<footer>
+  &copy; <span id="year"></span> TreeMeasure Pro ·
+  <a href="support.html">Suport / Support</a> ·
+  <a href="mailto:nicolaflorin00@icloud.com">nicolaflorin00@icloud.com</a>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.querySelectorAll('.lang-bar button').forEach(btn => {
+      btn.classList.toggle('active', btn.id === 'btn-' + lang);
+    });
+    document.documentElement.lang = lang;
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
