@@ -48,6 +48,14 @@
       font-size: 16px;
       opacity: 0.85;
     }
+    header .appstore-badge {
+      display: inline-block;
+      margin-top: 24px;
+    }
+    header .appstore-badge img {
+      height: 44px;
+      border-radius: 8px;
+    }
 
     /* ── Lang toggle ── */
     .lang-bar {
@@ -154,6 +162,51 @@
     .feature-card p { font-size: 14px; font-weight: 600; color: var(--green-dark); }
     .feature-card small { font-size: 12px; color: var(--muted); }
 
+    /* ── Download banner ── */
+    .download-banner {
+      background: linear-gradient(135deg, var(--green-light) 0%, var(--accent) 100%);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .download-banner .dl-text h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+    .download-banner .dl-text p {
+      font-size: 14px;
+      color: var(--green-dark);
+      opacity: 0.8;
+    }
+    .download-banner a.appstore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green-dark);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .download-banner a.appstore-btn:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+    .download-banner a.appstore-btn .apple-icon {
+      font-size: 20px;
+    }
+
     /* ── Contact ── */
     .contact-box {
       background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
@@ -189,6 +242,7 @@
       color: var(--muted);
       border-top: 1px solid var(--border);
     }
+    footer a { color: var(--green-mid); }
 
     /* ── Language sections ── */
     [data-lang] { display: none; }
@@ -201,6 +255,9 @@
   <span class="icon">🌲</span>
   <h1>TreeMeasure Pro</h1>
   <p class="tagline">Măsurători forestiere precise · Precise forestry measurements</p>
+  <a class="appstore-badge" href="https://apps.apple.com/ro/app/treemeasure-pro/id6760644907" target="_blank" rel="noopener">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
+  </a>
 </header>
 
 <div class="lang-bar">
@@ -212,6 +269,16 @@
 
   <!-- ═══════════════ ROMÂNĂ ═══════════════ -->
   <div data-lang="ro" class="visible">
+
+    <div class="download-banner">
+      <div class="dl-text">
+        <h3>📲 Descarcă TreeMeasure Pro</h3>
+        <p>Disponibil gratuit pe App Store · iPhone & iPad</p>
+      </div>
+      <a class="appstore-btn" href="https://apps.apple.com/ro/app/treemeasure-pro/id6760644907" target="_blank" rel="noopener">
+        <span class="apple-icon"></span> App Store
+      </a>
+    </div>
 
     <div class="section">
       <h2><span class="ico">🌿</span>Despre aplicație</h2>
@@ -312,6 +379,16 @@
   <!-- ═══════════════ ENGLISH ═══════════════ -->
   <div data-lang="en">
 
+    <div class="download-banner">
+      <div class="dl-text">
+        <h3>📲 Download TreeMeasure Pro</h3>
+        <p>Free on the App Store · iPhone & iPad</p>
+      </div>
+      <a class="appstore-btn" href="https://apps.apple.com/ro/app/treemeasure-pro/id6760644907" target="_blank" rel="noopener">
+        <span class="apple-icon"></span> App Store
+      </a>
+    </div>
+
     <div class="section">
       <h2><span class="ico">🌿</span>About the App</h2>
       <p>
@@ -410,7 +487,9 @@
 </main>
 
 <footer>
-  &copy; <span id="year"></span> TreeMeasure Pro · <a href="mailto:nicolaflorin00@icloud.com" style="color:var(--green-mid)">nicolaflorin00@icloud.com</a>
+  &copy; <span id="year"></span> TreeMeasure Pro ·
+  <a href="https://apps.apple.com/ro/app/treemeasure-pro/id6760644907" target="_blank" rel="noopener"> App Store</a> ·
+  <a href="mailto:nicolaflorin00@icloud.com">nicolaflorin00@icloud.com</a>
 </footer>
 
 <script>
