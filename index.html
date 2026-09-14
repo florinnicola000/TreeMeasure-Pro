@@ -186,7 +186,9 @@ nav.dark .lang-toggle button.active { background: rgba(255,255,255,0.15); color:
 .iscreen { width: 100%; height: 100%; background: var(--app-bg); overflow: hidden; position: relative; }
 .iscreen::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.04) 0%, transparent 50%); pointer-events: none; z-index: 100; }
 
-.strk { display: flex; width: 600%; height: 100%; transition: transform .7s cubic-bezier(.4,0,.2,1); }
+.strk { display: flex; width: 900%; height: 100%; transition: transform .7s cubic-bezier(.4,0,.2,1); }
+.slide-sc { flex-shrink: 0; width: calc(100% / 9); height: 100%; overflow: hidden; }
+.slide-sc img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 .sc { width: 16.6667%; height: 100%; flex-shrink: 0; display: flex; flex-direction: column; position: relative; overflow: hidden; }
 
 /* ── Screen 1: AR Inventar ── */
@@ -646,278 +648,15 @@ footer { background: var(--g100); border-top: 1px solid var(--g200); padding: 26
       <div class="island"></div>
       <div class="iscreen">
         <div class="strk" id="trk-ro">
-
-          <!-- Screen 1: AR Inventar complet cu LiDAR -->
-          <div class="sc s1">
-            <div class="s1-topbar">
-              <div class="s1-back">
-                <svg viewBox="0 0 10 10" fill="none"><path d="M6.5 2L3.5 5L6.5 8" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="s1-title">Inventar complet</div>
-              <div class="s1-lidar">LiDAR</div>
-            </div>
-            <div class="ar-viewport">
-              <div class="depth-scan"></div>
-              <div class="trunk-shape"></div>
-              <!-- Depth dots -->
-              <div class="depth-dot" style="top:25%;left:44%;opacity:.4"></div>
-              <div class="depth-dot" style="top:33%;left:55%;opacity:.6"></div>
-              <div class="depth-dot" style="top:42%;left:47%;opacity:.5"></div>
-              <div class="depth-dot" style="top:58%;left:52%;opacity:.7"></div>
-              <div class="depth-dot" style="top:67%;left:46%;opacity:.4"></div>
-              <div class="depth-dot" style="top:72%;left:54%;opacity:.55"></div>
-              <div class="crosshair">
-                <div class="ch-ring"></div>
-                <div class="ch-ring2"></div>
-                <div class="ch-h"></div>
-                <div class="ch-v"></div>
-                <div class="ch-tl"></div><div class="ch-tr"></div>
-                <div class="ch-bl"></div><div class="ch-br"></div>
-              </div>
-              <div class="scan-sweep"></div>
-              <div class="dist-badge">
-                <span>2.4 m</span>
-                <small>distanță</small>
-              </div>
-              <div class="plane-label">● Plan detectat</div>
-            </div>
-            <div class="s1-panel">
-              <div class="s1-dbh">
-                <span class="val">32.4</span>
-                <span class="unit">cm</span>
-                <span class="lbl">DBH · stabil</span>
-              </div>
-              <div class="s1-meta">
-                <div class="s1-chip"><div class="cl">Specia</div><div class="cv">Q. robur</div></div>
-                <div class="s1-chip"><div class="cl">Înălțime</div><div class="cv">24.1 m</div></div>
-                <div class="s1-chip"><div class="cl">Volum</div><div class="cv">1.2 m³</div></div>
-              </div>
-              <div class="s1-btn"><span>Salvează înregistrarea</span></div>
-            </div>
-          </div>
-
-          <!-- Screen 2: Măsurare înălțime AR -->
-          <div class="sc s2">
-            <div class="s2-topbar">
-              <div class="s1-back">
-                <svg viewBox="0 0 10 10" fill="none"><path d="M6.5 2L3.5 5L6.5 8" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="s2-title">Înălțime AR</div>
-              <div class="s2-chip">Clinometru</div>
-            </div>
-            <div class="cam-view">
-              <!-- Forest background -->
-              <div class="tree-trunk-tall"></div>
-              <div class="horizon"></div>
-              <div class="horizon-lbl">orizontală</div>
-              <div class="height-line"></div>
-              <!-- Top angle marker -->
-              <div class="angle-top">
-                <div class="angle-badge-top">∠ +38.2°</div>
-                <div class="angle-line-top"></div>
-                <div class="angle-dot"></div>
-              </div>
-              <!-- Bottom angle marker -->
-              <div class="angle-bot">
-                <div class="angle-dot-bot"></div>
-                <div class="angle-line-bot"></div>
-                <div class="angle-badge-bot">∠ −2.1°</div>
-              </div>
-            </div>
-            <div class="s2-panel">
-              <div class="s2-result">
-                <div>
-                  <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.3px;">Înălțime</div>
-                  <div class="s2-height"><span class="val">18.4</span><span class="unit"> m</span></div>
-                </div>
-                <div class="s2-dist">
-                  <div class="dl">Distanță</div>
-                  <div class="dv">12.5 m</div>
-                </div>
-              </div>
-              <div class="s2-bar"><div class="s2-bar-f"></div></div>
-            </div>
-          </div>
-
-          <!-- Screen 3: Lista înregistrări -->
-          <div class="sc s3">
-            <div class="s3-topbar">
-              <div class="s3-nav">
-                <div class="s3-title">Înregistrări</div>
-                <div class="s3-add">+</div>
-              </div>
-              <div class="s3-filters">
-                <div class="s3-fchip active">Toate</div>
-                <div class="s3-fchip">Inventar</div>
-                <div class="s3-fchip">Înălțimi</div>
-              </div>
-            </div>
-            <div class="s3-list">
-              <div class="rec-row">
-                <div class="rec-icon">🌳</div>
-                <div class="rec-body">
-                  <div class="rec-sp">Quercus robur</div>
-                  <div class="rec-sub">Inventar · 47.032°N, 26.891°E</div>
-                </div>
-                <div class="rec-val">
-                  <div class="rec-d">38.2 cm</div>
-                  <div class="rec-h">1.4 m³</div>
-                </div>
-              </div>
-              <div class="rec-row">
-                <div class="rec-icon">🌲</div>
-                <div class="rec-body">
-                  <div class="rec-sp">Fagus sylvatica</div>
-                  <div class="rec-sub">Inventar · 47.031°N, 26.890°E</div>
-                </div>
-                <div class="rec-val">
-                  <div class="rec-d">29.7 cm</div>
-                  <div class="rec-h">0.8 m³</div>
-                </div>
-              </div>
-              <div class="rec-row">
-                <div class="rec-icon">🎋</div>
-                <div class="rec-body">
-                  <div class="rec-sp">Picea abies</div>
-                  <div class="rec-sub">Înălțime · 47.033°N, 26.892°E</div>
-                </div>
-                <div class="rec-val">
-                  <div class="rec-d">22.6 m</div>
-                  <div class="rec-h" style="color:rgba(255,183,77,.6);">H</div>
-                </div>
-              </div>
-              <div class="rec-row">
-                <div class="rec-icon">🌳</div>
-                <div class="rec-body">
-                  <div class="rec-sp">Acer platanoides</div>
-                  <div class="rec-sub">Inventar · 47.030°N, 26.889°E</div>
-                </div>
-                <div class="rec-val">
-                  <div class="rec-d">18.6 cm</div>
-                  <div class="rec-h">0.3 m³</div>
-                </div>
-              </div>
-            </div>
-            <div class="s3-footer">
-              <div class="s3-count">12 înregistrări</div>
-              <div class="s3-export">PDF · CSV · GeoJSON</div>
-            </div>
-          </div>
-
-          <!-- Screen 4: Piețe de probă -->
-          <div class="sc s4">
-            <div class="s4-topbar">
-              <div class="s4-nav">
-                <div class="s4-title">Piețe de probă</div>
-                <div class="s4-badge">P-07</div>
-              </div>
-              <div class="s4-subtitle">Piață de probă · R = 12.62 m · 1000 m²</div>
-            </div>
-            <div class="plot-ar">
-              <!-- Radius ring -->
-              <div class="plot-r12"></div>
-              <!-- Trees in plot -->
-              <div class="tree-dot td1"></div>
-              <div class="tree-dot td2"></div>
-              <div class="tree-dot td3"></div>
-              <div class="tree-dot td4"></div>
-              <div class="tree-dot td5"></div>
-              <!-- Plot crosshair -->
-              <div class="plot-ch">
-                <div class="plot-outer">
-                  <div class="plot-inner">
-                    <div class="plot-center"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="plot-h"></div>
-              <div class="plot-v"></div>
-              <div class="plot-info">
-                <span>5 arbori incluși · <strong>8.2 m²/ha</strong></span>
-              </div>
-            </div>
-            <div class="s4-stats">
-              <div class="s4-stat">
-                <div class="sl">N/ha</div>
-                <div class="sv">640</div>
-                <div class="su">arbori/ha</div>
-              </div>
-              <div class="s4-stat">
-                <div class="sl">G</div>
-                <div class="sv">12.4</div>
-                <div class="su">m²/ha</div>
-              </div>
-              <div class="s4-stat">
-                <div class="sl">Volum</div>
-                <div class="sv">7.8</div>
-                <div class="su">m³</div>
-              </div>
-            </div>
-            <div class="s4-btn"><span>Adaugă arbore</span></div>
-          </div>
-
-          <!-- Screen 5: Coroană -->
-          <div class="sc s5">
-            <div class="s1-topbar">
-              <div class="s1-back"><svg viewBox="0 0 10 10" fill="none"><path d="M6.5 2L3.5 5L6.5 8" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-              <div class="s1-title">Coroană</div>
-              <div class="s1-lidar" style="color:var(--app-warn);background:rgba(255,183,77,.1);border-color:rgba(255,183,77,.3)">AR</div>
-            </div>
-            <div class="crown-view">
-              <div class="crown-trunk"></div>
-              <div class="crown-ball"></div>
-              <div class="crown-h-left"></div>
-              <div class="crown-h-right"></div>
-              <div class="crown-ld"></div>
-              <div class="crown-rd"></div>
-              <div class="crown-w-badge">⌀ 8.4 m</div>
-              <div class="crown-base"></div>
-              <div class="crown-base-badge">bază 6.2 m</div>
-            </div>
-            <div class="s1-panel">
-              <div class="s1-dbh">
-                <span class="val">8.4</span>
-                <span class="unit">m</span>
-                <span class="lbl">Diametru coroană</span>
-              </div>
-              <div class="s1-meta">
-                <div class="s1-chip"><div class="cl">Bază coroană</div><div class="cv">6.2 m</div></div>
-                <div class="s1-chip"><div class="cl">Înălțime tot.</div><div class="cv">24.1 m</div></div>
-              </div>
-              <div class="s1-btn"><span>Salvează coroana</span></div>
-            </div>
-          </div>
-
-          <!-- Screen 6: Clinometru / Pantă -->
-          <div class="sc s6">
-            <div class="s6-topbar">
-              <div class="s1-back"><svg viewBox="0 0 10 10" fill="none"><path d="M6.5 2L3.5 5L6.5 8" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-              <div class="s6-title">Clinometru</div>
-              <div class="s6-chip">Pantă</div>
-            </div>
-            <div class="level-area">
-              <div>
-                <span class="slope-big">12.4</span><span class="slope-unit">°</span>
-              </div>
-              <div class="level-track">
-                <div class="level-ctr"></div>
-                <div class="level-bubble"></div>
-              </div>
-              <div class="slope-row">
-                <div class="slope-pct">21.9%</div>
-                <div class="slope-lbl">pantă drum forestier</div>
-              </div>
-              <div class="road-badge">📐 Drum clasa II · abrupt</div>
-            </div>
-            <div class="s6-panel">
-              <div class="s6-readings">
-                <div class="s6-rd"><div class="rl">Unghi</div><div class="rv">12.4°</div></div>
-                <div class="s6-rd"><div class="rl">Pantă %</div><div class="rv">21.9%</div></div>
-                <div class="s6-rd"><div class="rl">Clasif.</div><div class="rv">Abrupt</div></div>
-              </div>
-            </div>
-          </div>
-
+          <div class="slide-sc"><img src="assets/screenshots/09-menu.jpg" alt="Meniu principal"></div>
+          <div class="slide-sc"><img src="assets/screenshots/01-diameter.jpg" alt="Diametru inventar"></div>
+          <div class="slide-sc"><img src="assets/screenshots/05-height.jpg" alt="Înălțime AR"></div>
+          <div class="slide-sc"><img src="assets/screenshots/03-plots.jpg" alt="Piețe de probă"></div>
+          <div class="slide-sc"><img src="assets/screenshots/06-bitterlich.jpg" alt="Bitterlich"></div>
+          <div class="slide-sc"><img src="assets/screenshots/04-circumference.jpg" alt="Circumferință"></div>
+          <div class="slide-sc"><img src="assets/screenshots/02-watch.jpg" alt="Apple Watch"></div>
+          <div class="slide-sc"><img src="assets/screenshots/07-export.jpg" alt="Export"></div>
+          <div class="slide-sc"><img src="assets/screenshots/08-settings.jpg" alt="Setări"></div>
         </div><!-- /strk -->
       </div><!-- /iscreen -->
     </div><!-- /iphone -->
@@ -928,28 +667,11 @@ footer { background: var(--g100); border-top: 1px solid var(--g200); padding: 26
       <div class="dot" onclick="go('ro',3)"></div>
       <div class="dot" onclick="go('ro',4)"></div>
       <div class="dot" onclick="go('ro',5)"></div>
+      <div class="dot" onclick="go('ro',6)"></div>
+      <div class="dot" onclick="go('ro',7)"></div>
+      <div class="dot" onclick="go('ro',8)"></div>
     </div>
   </div>
-</section>
-
-<!-- Screenshots RO -->
-<section class="ss-section">
-  <div class="ss-heading reveal">
-    <p class="eyebrow" style="margin-bottom:8px">Galerie</p>
-    <h2 class="sh">Aplicația în acțiune.</h2>
-  </div>
-  <div class="ss-scroll">
-    <div class="ss-item"><img src="assets/screenshots/09-menu.jpg" alt="Meniu principal" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/01-diameter.jpg" alt="Măsurare diametru inventar" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/05-height.jpg" alt="Înălțime AR" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/03-plots.jpg" alt="Piețe de probă" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/06-bitterlich.jpg" alt="Metodă Bitterlich" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/04-circumference.jpg" alt="Circumferință arbori groși" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/02-watch.jpg" alt="Apple Watch – declanșare de la distanță" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/07-export.jpg" alt="Export CSV · PDF · GeoJSON" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/08-settings.jpg" alt="Setări și unități de măsură" loading="lazy"></div>
-  </div>
-  <p class="ss-hint reveal">← Derulează pentru toate modulele</p>
 </section>
 
 <!-- Features RO -->
@@ -1087,303 +809,30 @@ footer { background: var(--g100); border-top: 1px solid var(--g200); padding: 26
       <div class="island"></div>
       <div class="iscreen">
         <div class="strk" id="trk-en">
-
-          <!-- Screen 1 -->
-          <div class="sc s1">
-            <div class="s1-topbar">
-              <div class="s1-back">
-                <svg viewBox="0 0 10 10" fill="none"><path d="M6.5 2L3.5 5L6.5 8" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="s1-title">Full Inventory</div>
-              <div class="s1-lidar">LiDAR</div>
-            </div>
-            <div class="ar-viewport">
-              <div class="depth-scan"></div>
-              <div class="trunk-shape"></div>
-              <div class="depth-dot" style="top:25%;left:44%;opacity:.4"></div>
-              <div class="depth-dot" style="top:33%;left:55%;opacity:.6"></div>
-              <div class="depth-dot" style="top:42%;left:47%;opacity:.5"></div>
-              <div class="depth-dot" style="top:58%;left:52%;opacity:.7"></div>
-              <div class="depth-dot" style="top:67%;left:46%;opacity:.4"></div>
-              <div class="depth-dot" style="top:72%;left:54%;opacity:.55"></div>
-              <div class="crosshair">
-                <div class="ch-ring"></div>
-                <div class="ch-ring2"></div>
-                <div class="ch-h"></div>
-                <div class="ch-v"></div>
-                <div class="ch-tl"></div><div class="ch-tr"></div>
-                <div class="ch-bl"></div><div class="ch-br"></div>
-              </div>
-              <div class="scan-sweep"></div>
-              <div class="dist-badge">
-                <span>2.4 m</span>
-                <small>distance</small>
-              </div>
-              <div class="plane-label">● Plane detected</div>
-            </div>
-            <div class="s1-panel">
-              <div class="s1-dbh">
-                <span class="val">32.4</span>
-                <span class="unit">cm</span>
-                <span class="lbl">DBH · stable</span>
-              </div>
-              <div class="s1-meta">
-                <div class="s1-chip"><div class="cl">Species</div><div class="cv">Q. robur</div></div>
-                <div class="s1-chip"><div class="cl">Height</div><div class="cv">24.1 m</div></div>
-                <div class="s1-chip"><div class="cl">Volume</div><div class="cv">1.2 m³</div></div>
-              </div>
-              <div class="s1-btn"><span>Save record</span></div>
-            </div>
-          </div>
-
-          <!-- Screen 2 -->
-          <div class="sc s2">
-            <div class="s2-topbar">
-              <div class="s1-back">
-                <svg viewBox="0 0 10 10" fill="none"><path d="M6.5 2L3.5 5L6.5 8" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="s2-title">AR Height</div>
-              <div class="s2-chip">Clinometer</div>
-            </div>
-            <div class="cam-view">
-              <div class="tree-trunk-tall"></div>
-              <div class="horizon"></div>
-              <div class="horizon-lbl">horizon</div>
-              <div class="height-line"></div>
-              <div class="angle-top">
-                <div class="angle-badge-top">∠ +38.2°</div>
-                <div class="angle-line-top"></div>
-                <div class="angle-dot"></div>
-              </div>
-              <div class="angle-bot">
-                <div class="angle-dot-bot"></div>
-                <div class="angle-line-bot"></div>
-                <div class="angle-badge-bot">∠ −2.1°</div>
-              </div>
-            </div>
-            <div class="s2-panel">
-              <div class="s2-result">
-                <div>
-                  <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.3px;">Height</div>
-                  <div class="s2-height"><span class="val">18.4</span><span class="unit"> m</span></div>
-                </div>
-                <div class="s2-dist">
-                  <div class="dl">Distance</div>
-                  <div class="dv">12.5 m</div>
-                </div>
-              </div>
-              <div class="s2-bar"><div class="s2-bar-f"></div></div>
-            </div>
-          </div>
-
-          <!-- Screen 3 -->
-          <div class="sc s3">
-            <div class="s3-topbar">
-              <div class="s3-nav">
-                <div class="s3-title">Records</div>
-                <div class="s3-add">+</div>
-              </div>
-              <div class="s3-filters">
-                <div class="s3-fchip active">All</div>
-                <div class="s3-fchip">Inventory</div>
-                <div class="s3-fchip">Heights</div>
-              </div>
-            </div>
-            <div class="s3-list">
-              <div class="rec-row">
-                <div class="rec-icon">🌳</div>
-                <div class="rec-body">
-                  <div class="rec-sp">Quercus robur</div>
-                  <div class="rec-sub">Inventory · 47.032°N, 26.891°E</div>
-                </div>
-                <div class="rec-val">
-                  <div class="rec-d">38.2 cm</div>
-                  <div class="rec-h">1.4 m³</div>
-                </div>
-              </div>
-              <div class="rec-row">
-                <div class="rec-icon">🌲</div>
-                <div class="rec-body">
-                  <div class="rec-sp">Fagus sylvatica</div>
-                  <div class="rec-sub">Inventory · 47.031°N, 26.890°E</div>
-                </div>
-                <div class="rec-val">
-                  <div class="rec-d">29.7 cm</div>
-                  <div class="rec-h">0.8 m³</div>
-                </div>
-              </div>
-              <div class="rec-row">
-                <div class="rec-icon">🎋</div>
-                <div class="rec-body">
-                  <div class="rec-sp">Picea abies</div>
-                  <div class="rec-sub">Height · 47.033°N, 26.892°E</div>
-                </div>
-                <div class="rec-val">
-                  <div class="rec-d">22.6 m</div>
-                  <div class="rec-h" style="color:rgba(255,183,77,.6);">H</div>
-                </div>
-              </div>
-              <div class="rec-row">
-                <div class="rec-icon">🌳</div>
-                <div class="rec-body">
-                  <div class="rec-sp">Acer platanoides</div>
-                  <div class="rec-sub">Inventory · 47.030°N, 26.889°E</div>
-                </div>
-                <div class="rec-val">
-                  <div class="rec-d">18.6 cm</div>
-                  <div class="rec-h">0.3 m³</div>
-                </div>
-              </div>
-            </div>
-            <div class="s3-footer">
-              <div class="s3-count">12 records</div>
-              <div class="s3-export">PDF · CSV · GeoJSON</div>
-            </div>
-          </div>
-
-          <!-- Screen 4 -->
-          <div class="sc s4">
-            <div class="s4-topbar">
-              <div class="s4-nav">
-                <div class="s4-title">Sample Plot</div>
-                <div class="s4-badge">P-07</div>
-              </div>
-              <div class="s4-subtitle">Fixed plot · R = 12.62 m · 1000 m²</div>
-            </div>
-            <div class="plot-ar">
-              <div class="plot-r12"></div>
-              <div class="tree-dot td1"></div>
-              <div class="tree-dot td2"></div>
-              <div class="tree-dot td3"></div>
-              <div class="tree-dot td4"></div>
-              <div class="tree-dot td5"></div>
-              <div class="plot-ch">
-                <div class="plot-outer">
-                  <div class="plot-inner">
-                    <div class="plot-center"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="plot-h"></div>
-              <div class="plot-v"></div>
-              <div class="plot-info">
-                <span>5 trees included · <strong>8.2 m²/ha</strong></span>
-              </div>
-            </div>
-            <div class="s4-stats">
-              <div class="s4-stat">
-                <div class="sl">N/ha</div>
-                <div class="sv">640</div>
-                <div class="su">trees/ha</div>
-              </div>
-              <div class="s4-stat">
-                <div class="sl">G</div>
-                <div class="sv">12.4</div>
-                <div class="su">m²/ha</div>
-              </div>
-              <div class="s4-stat">
-                <div class="sl">Volume</div>
-                <div class="sv">7.8</div>
-                <div class="su">m³</div>
-              </div>
-            </div>
-            <div class="s4-btn"><span>Add tree</span></div>
-          </div>
-
-          <!-- Screen 5: Crown -->
-          <div class="sc s5">
-            <div class="s1-topbar">
-              <div class="s1-back"><svg viewBox="0 0 10 10" fill="none"><path d="M6.5 2L3.5 5L6.5 8" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-              <div class="s1-title">Crown</div>
-              <div class="s1-lidar" style="color:var(--app-warn);background:rgba(255,183,77,.1);border-color:rgba(255,183,77,.3)">AR</div>
-            </div>
-            <div class="crown-view">
-              <div class="crown-trunk"></div>
-              <div class="crown-ball"></div>
-              <div class="crown-h-left"></div>
-              <div class="crown-h-right"></div>
-              <div class="crown-ld"></div>
-              <div class="crown-rd"></div>
-              <div class="crown-w-badge">⌀ 8.4 m</div>
-              <div class="crown-base"></div>
-              <div class="crown-base-badge">base 6.2 m</div>
-            </div>
-            <div class="s1-panel">
-              <div class="s1-dbh">
-                <span class="val">8.4</span>
-                <span class="unit">m</span>
-                <span class="lbl">Crown diameter</span>
-              </div>
-              <div class="s1-meta">
-                <div class="s1-chip"><div class="cl">Crown base</div><div class="cv">6.2 m</div></div>
-                <div class="s1-chip"><div class="cl">Total height</div><div class="cv">24.1 m</div></div>
-              </div>
-              <div class="s1-btn"><span>Save crown</span></div>
-            </div>
-          </div>
-
-          <!-- Screen 6: Clinometer / Slope -->
-          <div class="sc s6">
-            <div class="s6-topbar">
-              <div class="s1-back"><svg viewBox="0 0 10 10" fill="none"><path d="M6.5 2L3.5 5L6.5 8" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-              <div class="s6-title">Clinometer</div>
-              <div class="s6-chip">Slope</div>
-            </div>
-            <div class="level-area">
-              <div>
-                <span class="slope-big">12.4</span><span class="slope-unit">°</span>
-              </div>
-              <div class="level-track">
-                <div class="level-ctr"></div>
-                <div class="level-bubble"></div>
-              </div>
-              <div class="slope-row">
-                <div class="slope-pct">21.9%</div>
-                <div class="slope-lbl">forest road slope</div>
-              </div>
-              <div class="road-badge">📐 Class II road · steep</div>
-            </div>
-            <div class="s6-panel">
-              <div class="s6-readings">
-                <div class="s6-rd"><div class="rl">Angle</div><div class="rv">12.4°</div></div>
-                <div class="s6-rd"><div class="rl">Slope %</div><div class="rv">21.9%</div></div>
-                <div class="s6-rd"><div class="rl">Class</div><div class="rv">Steep</div></div>
-              </div>
-            </div>
-          </div>
-
+          <div class="slide-sc"><img src="assets/screenshots/09-menu.jpg" alt="Main menu"></div>
+          <div class="slide-sc"><img src="assets/screenshots/01-diameter.jpg" alt="Inventory diameter"></div>
+          <div class="slide-sc"><img src="assets/screenshots/05-height.jpg" alt="AR Height"></div>
+          <div class="slide-sc"><img src="assets/screenshots/03-plots.jpg" alt="Sample plots"></div>
+          <div class="slide-sc"><img src="assets/screenshots/06-bitterlich.jpg" alt="Bitterlich relascope"></div>
+          <div class="slide-sc"><img src="assets/screenshots/04-circumference.jpg" alt="Circumference"></div>
+          <div class="slide-sc"><img src="assets/screenshots/02-watch.jpg" alt="Apple Watch"></div>
+          <div class="slide-sc"><img src="assets/screenshots/07-export.jpg" alt="Export CSV PDF GeoJSON"></div>
+          <div class="slide-sc"><img src="assets/screenshots/08-settings.jpg" alt="Settings"></div>
         </div>
       </div>
     </div>
-    <div class="sdots" id="dots-en">
+        <div class="sdots" id="dots-en">
       <div class="dot active" onclick="go('en',0)"></div>
       <div class="dot" onclick="go('en',1)"></div>
       <div class="dot" onclick="go('en',2)"></div>
       <div class="dot" onclick="go('en',3)"></div>
       <div class="dot" onclick="go('en',4)"></div>
       <div class="dot" onclick="go('en',5)"></div>
+      <div class="dot" onclick="go('en',6)"></div>
+      <div class="dot" onclick="go('en',7)"></div>
+      <div class="dot" onclick="go('en',8)"></div>
     </div>
   </div>
-</section>
-
-<!-- Screenshots EN -->
-<section class="ss-section">
-  <div class="ss-heading reveal">
-    <p class="eyebrow" style="margin-bottom:8px">Gallery</p>
-    <h2 class="sh">The app in action.</h2>
-  </div>
-  <div class="ss-scroll">
-    <div class="ss-item"><img src="assets/screenshots/09-menu.jpg" alt="Main menu" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/01-diameter.jpg" alt="Inventory diameter measurement" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/05-height.jpg" alt="AR Height measurement" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/03-plots.jpg" alt="Sample plots" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/06-bitterlich.jpg" alt="Bitterlich relascope method" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/04-circumference.jpg" alt="Circumference for large trees" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/02-watch.jpg" alt="Apple Watch remote trigger" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/07-export.jpg" alt="CSV · PDF · GeoJSON export" loading="lazy"></div>
-    <div class="ss-item"><img src="assets/screenshots/08-settings.jpg" alt="Settings and units" loading="lazy"></div>
-  </div>
-  <p class="ss-hint reveal">← Scroll to see all modules</p>
 </section>
 
 <!-- Features EN -->
@@ -1553,13 +1002,13 @@ function go(lang, idx) {
   const t = document.getElementById('trk-' + lang);
   const d = document.getElementById('dots-' + lang);
   if (!t || !d) return;
-  t.style.transform = `translateX(-${(idx * 100 / 6).toFixed(4)}%)`;
+  t.style.transform = `translateX(-${(idx * 100 / 9).toFixed(4)}%)`;
   d.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === idx));
 }
 function startAP(lang) {
   if (reducedMotion) return;
   if (ap[lang]) clearInterval(ap[lang]);
-  ap[lang] = setInterval(() => go(lang, (st[lang] + 1) % 6), 3400);
+  ap[lang] = setInterval(() => go(lang, (st[lang] + 1) % 9), 3400);
 }
 startAP('ro');
 startAP('en');
