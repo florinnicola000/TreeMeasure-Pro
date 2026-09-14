@@ -150,38 +150,7 @@ nav.dark .lang-toggle button.active { background: rgba(255,255,255,0.15); color:
 .stat .num { display: block; font-size: 24px; font-weight: 600; color: #fff; letter-spacing: -.5px; }
 .stat .lbl { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 3px; font-weight: 400; }
 
-/* ── FOREST BACKGROUND IMAGE ── */
-.forest-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 960px;
-  height: clamp(220px, 38vw, 360px);
-  margin-top: 56px;
-  border-radius: 20px;
-  overflow: hidden;
-  animation: fadeUp .8s .5s ease both;
-  flex-shrink: 0;
-}
-.forest-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 45%;
-  display: block;
-}
-.forest-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to right,  #0D1F0E 0%, transparent 28%),
-    linear-gradient(to left,   #0D1F0E 0%, transparent 28%),
-    linear-gradient(to bottom, #0D1F0E 0%, transparent 38%),
-    linear-gradient(to top,    #0D1F0E 0%, transparent 38%);
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── iPHONE MOCKUP (legacy, kept for reference) ── */
+/* ── iPHONE MOCKUP ── */
 .phone-wrap { margin-top: 64px; animation: fadeUp .8s .5s ease both; position: relative; flex-shrink: 0; }
 .phone-wrap::before {
   content: '';
@@ -674,8 +643,34 @@ footer { background: var(--g100); border-top: 1px solid var(--g200); padding: 26
   </div>
 
   <!-- iPhone mockup -->
-  <div class="forest-wrap">
-    <img src="assets/forest-bg.jpg" alt="Pădure de pin sylvestris">
+  <div class="phone-wrap">
+    <div class="iphone">
+      <div class="island"></div>
+      <div class="iscreen">
+        <div class="strk" id="trk-ro">
+          <div class="slide-sc"><img src="assets/screenshots/09-menu.jpg" alt="Meniu principal"></div>
+          <div class="slide-sc"><img src="assets/screenshots/01-diameter.jpg" alt="Diametru inventar"></div>
+          <div class="slide-sc"><img src="assets/screenshots/05-height.jpg" alt="Înălțime AR"></div>
+          <div class="slide-sc"><img src="assets/screenshots/03-plots.jpg" alt="Piețe de probă"></div>
+          <div class="slide-sc"><img src="assets/screenshots/06-bitterlich.jpg" alt="Bitterlich"></div>
+          <div class="slide-sc"><img src="assets/screenshots/04-circumference.jpg" alt="Circumferință"></div>
+          <div class="slide-sc"><img src="assets/screenshots/02-watch.jpg" alt="Apple Watch"></div>
+          <div class="slide-sc"><img src="assets/screenshots/07-export.jpg" alt="Export"></div>
+          <div class="slide-sc"><img src="assets/screenshots/08-settings.jpg" alt="Setări"></div>
+        </div><!-- /strk -->
+      </div><!-- /iscreen -->
+    </div><!-- /iphone -->
+    <div class="sdots" id="dots-ro">
+      <div class="dot active" onclick="go('ro',0)"></div>
+      <div class="dot" onclick="go('ro',1)"></div>
+      <div class="dot" onclick="go('ro',2)"></div>
+      <div class="dot" onclick="go('ro',3)"></div>
+      <div class="dot" onclick="go('ro',4)"></div>
+      <div class="dot" onclick="go('ro',5)"></div>
+      <div class="dot" onclick="go('ro',6)"></div>
+      <div class="dot" onclick="go('ro',7)"></div>
+      <div class="dot" onclick="go('ro',8)"></div>
+    </div>
   </div>
 </section>
 
@@ -809,8 +804,34 @@ footer { background: var(--g100); border-top: 1px solid var(--g200); padding: 26
   </div>
 
   <!-- iPhone mockup (same structure) -->
-  <div class="forest-wrap">
-    <img src="assets/forest-bg.jpg" alt="Scots pine forest">
+  <div class="phone-wrap">
+    <div class="iphone">
+      <div class="island"></div>
+      <div class="iscreen">
+        <div class="strk" id="trk-en">
+          <div class="slide-sc"><img src="assets/screenshots/09-menu.jpg" alt="Main menu"></div>
+          <div class="slide-sc"><img src="assets/screenshots/01-diameter.jpg" alt="Inventory diameter"></div>
+          <div class="slide-sc"><img src="assets/screenshots/05-height.jpg" alt="AR Height"></div>
+          <div class="slide-sc"><img src="assets/screenshots/03-plots.jpg" alt="Sample plots"></div>
+          <div class="slide-sc"><img src="assets/screenshots/06-bitterlich.jpg" alt="Bitterlich relascope"></div>
+          <div class="slide-sc"><img src="assets/screenshots/04-circumference.jpg" alt="Circumference"></div>
+          <div class="slide-sc"><img src="assets/screenshots/02-watch.jpg" alt="Apple Watch"></div>
+          <div class="slide-sc"><img src="assets/screenshots/07-export.jpg" alt="Export CSV PDF GeoJSON"></div>
+          <div class="slide-sc"><img src="assets/screenshots/08-settings.jpg" alt="Settings"></div>
+        </div>
+      </div>
+    </div>
+        <div class="sdots" id="dots-en">
+      <div class="dot active" onclick="go('en',0)"></div>
+      <div class="dot" onclick="go('en',1)"></div>
+      <div class="dot" onclick="go('en',2)"></div>
+      <div class="dot" onclick="go('en',3)"></div>
+      <div class="dot" onclick="go('en',4)"></div>
+      <div class="dot" onclick="go('en',5)"></div>
+      <div class="dot" onclick="go('en',6)"></div>
+      <div class="dot" onclick="go('en',7)"></div>
+      <div class="dot" onclick="go('en',8)"></div>
+    </div>
   </div>
 </section>
 
