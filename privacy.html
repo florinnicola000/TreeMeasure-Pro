@@ -200,7 +200,7 @@
   <span class="icon">🔒</span>
   <h1>TreeMeasure Pro</h1>
   <p class="tagline">Politică de Confidențialitate · Privacy Policy</p>
-  <p class="updated">Ultima actualizare / Last updated: 25 martie 2026</p>
+  <p class="updated">Ultima actualizare / Last updated: 16 septembrie 2026</p>
 </header>
 
 <div class="lang-bar">
@@ -216,13 +216,13 @@
     <div class="section">
       <h2><span class="ico">📋</span>Rezumat</h2>
       <div class="highlight">
-        TreeMeasure Pro nu colectează, nu stochează și nu transmite date personale. Toate datele create de tine rămân exclusiv pe dispozitivul tău.
+        TreeMeasure Pro nu colectează date personale și nu are conturi, reclame sau urmărire. Măsurătorile tale rămân pe dispozitiv; singurele excepții sunt cele două pe care le alegi tu — sincronizarea iCloud și pastila de vreme din meniu — descrise mai jos.
       </div>
       <div class="summary-grid">
         <div class="summary-card">
           <div class="s-icon">📍</div>
           <div class="s-label">Date de localizare</div>
-          <div class="s-value">Stocate local, nu transmise</div>
+          <div class="s-value">Stocate local; doar aproximativ (~1 km) pentru vreme</div>
         </div>
         <div class="summary-card">
           <div class="s-icon">👤</div>
@@ -232,7 +232,7 @@
         <div class="summary-card">
           <div class="s-icon">📡</div>
           <div class="s-label">Servere externe</div>
-          <div class="s-value">Nu sunt folosite</div>
+          <div class="s-value">Doar serviciul de vreme</div>
         </div>
         <div class="summary-card">
           <div class="s-icon">🍪</div>
@@ -242,7 +242,7 @@
         <div class="summary-card">
           <div class="s-icon">🤝</div>
           <div class="s-label">Terțe părți</div>
-          <div class="s-value">Nu sunt partajate date</div>
+          <div class="s-value">Doar poziția aproximativă, pentru vreme</div>
         </div>
         <div class="summary-card">
           <div class="s-icon">🧒</div>
@@ -266,7 +266,7 @@
 
     <div class="section">
       <h2><span class="ico">📊</span>Ce date procesăm</h2>
-      <p><strong>Date generate de tine (stocate exclusiv local):</strong></p>
+      <p><strong>Date generate de tine (stocate pe dispozitiv; în iCloud-ul tău doar dacă activezi sincronizarea):</strong></p>
       <ul>
         <li>Măsurători de arbori (diametru, înălțime, volum, specie)</li>
         <li>Coordonate GPS asociate înregistrărilor de inventar</li>
@@ -292,7 +292,8 @@
       <ul>
         <li>Localizarea este utilizată <strong>exclusiv în interiorul aplicației</strong></li>
         <li>Coordonatele GPS sunt stocate <strong>local pe dispozitivul tău</strong></li>
-        <li>Nu transmitem coordonate sau trasee către niciun server extern</li>
+        <li>Coordonatele exacte și traseele <strong>nu părăsesc dispozitivul</strong> — nu le trimitem nicăieri</li>
+        <li>Singura excepție e pastila de vreme, care folosește o poziție <strong>rotunjită la ~1 km</strong> (vezi secțiunea „Vremea")</li>
         <li>Poți revoca permisiunea oricând din <strong>Setări iOS → Confidențialitate → Localizare</strong></li>
       </ul>
     </div>
@@ -321,11 +322,46 @@
     </div>
 
     <div class="section">
+      <h2><span class="ico">🌦️</span>Vremea</h2>
+      <p>
+        Ecranul principal afișează o pastilă cu vremea de la locul în care te afli, folosită pentru
+        avertizările de ploaie și furtună. Aceasta este <strong>singura funcție a aplicației care
+        folosește internetul</strong>.
+      </p>
+      <ul>
+        <li>Poziția trimisă este <strong>rotunjită la două zecimale (~1 km)</strong> — niciodată fix-ul GPS exact</li>
+        <li>Se trimite doar poziția aproximativă: fără identificator de dispozitiv, fără cont, fără măsurătorile tale</li>
+        <li>Furnizor principal: <a href="https://open-meteo.com/en/terms" style="color:var(--green-mid)">Open-Meteo</a>; rezervă: <a href="https://wttr.in" style="color:var(--green-mid)">wttr.in</a></li>
+        <li>Rezultatul e păstrat în memorie 30 de minute, deci cererile sunt rare</li>
+        <li>Dacă refuzi permisiunea de localizare, pastila nu apare și <strong>nu se face nicio cerere</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">☁️</span>Sincronizare iCloud (opțională)</h2>
+      <p>
+        În Setări poți activa sincronizarea măsurătorilor între dispozitivele tale. Este
+        <strong>dezactivată implicit</strong> și pornește doar dacă o ceri tu.
+      </p>
+      <ul>
+        <li>Datele merg în <strong>baza privată iCloud a contului tău</strong>, nu pe serverele noastre</li>
+        <li>Nu avem și nu putem avea acces la conținutul ei — este guvernată de <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Politica de Confidențialitate Apple</a></li>
+        <li>Fotografiile nu se sincronizează; rămân pe dispozitivul pe care au fost făcute</li>
+        <li>Oprirea sincronizării lasă datele locale neatinse</li>
+      </ul>
+    </div>
+
+    <div class="section">
       <h2><span class="ico">🤝</span>Partajarea datelor cu terțe părți</h2>
       <p>
-        <strong>Nu vindem, nu închiriem și nu partajăm datele tale</strong> cu nicio terță parte,
-        cu excepția serviciilor Apple menționate mai sus (rapoarte de erori anonime, confirmare abonament),
-        care sunt reglementate de <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Politica de Confidențialitate Apple</a>.
+        <strong>Nu vindem și nu închiriem datele tale nimănui</strong>, iar măsurătorile tale nu ajung
+        la nicio terță parte. Singurele date care părăsesc dispozitivul sunt:
+      </p>
+      <ul>
+        <li><strong>Poziția aproximativă (~1 km)</strong> → furnizorul de vreme, pentru a răspunde cererii (vezi „Vremea")</li>
+        <li><strong>Serviciile Apple</strong> → rapoarte de erori anonime, confirmarea abonamentului și, dacă o activezi, sincronizarea iCloud în contul tău — reglementate de <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Politica de Confidențialitate Apple</a></li>
+      </ul>
+      <p>
       </p>
     </div>
 
@@ -372,13 +408,13 @@
     <div class="section">
       <h2><span class="ico">📋</span>Summary</h2>
       <div class="highlight">
-        TreeMeasure Pro does not collect, store, or transmit personal data. All data you create stays exclusively on your device.
+        TreeMeasure Pro collects no personal data and has no accounts, ads or tracking. Your measurements stay on your device; the only exceptions are the two you choose yourself — iCloud sync and the weather pill in the menu — described below.
       </div>
       <div class="summary-grid">
         <div class="summary-card">
           <div class="s-icon">📍</div>
           <div class="s-label">Location data</div>
-          <div class="s-value">Stored locally, not transmitted</div>
+          <div class="s-value">Stored locally; approximate only (~1 km) for weather</div>
         </div>
         <div class="summary-card">
           <div class="s-icon">👤</div>
@@ -388,7 +424,7 @@
         <div class="summary-card">
           <div class="s-icon">📡</div>
           <div class="s-label">External servers</div>
-          <div class="s-value">None used</div>
+          <div class="s-value">Weather service only</div>
         </div>
         <div class="summary-card">
           <div class="s-icon">🍪</div>
@@ -398,7 +434,7 @@
         <div class="summary-card">
           <div class="s-icon">🤝</div>
           <div class="s-label">Third parties</div>
-          <div class="s-value">No data shared</div>
+          <div class="s-value">Approximate position only, for weather</div>
         </div>
         <div class="summary-card">
           <div class="s-icon">🧒</div>
@@ -421,7 +457,7 @@
 
     <div class="section">
       <h2><span class="ico">📊</span>What data we process</h2>
-      <p><strong>Data you generate (stored exclusively on-device):</strong></p>
+      <p><strong>Data you generate (stored on your device; in your own iCloud only if you enable sync):</strong></p>
       <ul>
         <li>Tree measurements (diameter, height, volume, species)</li>
         <li>GPS coordinates associated with inventory records</li>
@@ -447,7 +483,8 @@
       <ul>
         <li>Location is used <strong>exclusively within the app</strong></li>
         <li>GPS coordinates are stored <strong>locally on your device</strong></li>
-        <li>We do not transmit coordinates or routes to any external server</li>
+        <li>Exact coordinates and tracks <strong>never leave your device</strong> — we do not send them anywhere</li>
+        <li>The only exception is the weather pill, which uses a position <strong>rounded to ~1 km</strong> (see "Weather")</li>
         <li>You can revoke permission at any time from <strong>iOS Settings → Privacy → Location Services</strong></li>
       </ul>
     </div>
@@ -476,11 +513,45 @@
     </div>
 
     <div class="section">
+      <h2><span class="ico">🌦️</span>Weather</h2>
+      <p>
+        The main screen shows a weather pill for your current area, used for the rain and storm
+        warnings. This is the <strong>only feature in the app that uses the internet</strong>.
+      </p>
+      <ul>
+        <li>The position sent is <strong>rounded to two decimals (~1 km)</strong> — never your exact GPS fix</li>
+        <li>Only that approximate position is sent: no device identifier, no account, none of your measurements</li>
+        <li>Primary provider: <a href="https://open-meteo.com/en/terms" style="color:var(--green-mid)">Open-Meteo</a>; fallback: <a href="https://wttr.in" style="color:var(--green-mid)">wttr.in</a></li>
+        <li>The result is cached for 30 minutes, so requests are infrequent</li>
+        <li>If you decline location permission, the pill does not appear and <strong>no request is made</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="ico">☁️</span>iCloud Sync (optional)</h2>
+      <p>
+        In Settings you can enable syncing your measurements between your own devices. It is
+        <strong>off by default</strong> and starts only if you turn it on.
+      </p>
+      <ul>
+        <li>Data goes to <strong>your account's private iCloud database</strong>, not to our servers</li>
+        <li>We have no access to it and cannot gain any — it is governed by <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Apple's Privacy Policy</a></li>
+        <li>Photos are not synced; they stay on the device that took them</li>
+        <li>Turning sync off leaves your local data untouched</li>
+      </ul>
+    </div>
+
+    <div class="section">
       <h2><span class="ico">🤝</span>Sharing Data with Third Parties</h2>
       <p>
-        <strong>We do not sell, rent, or share your data</strong> with any third party,
-        with the exception of the Apple services mentioned above (anonymous crash reports, subscription confirmation),
-        which are governed by <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Apple's Privacy Policy</a>.
+        <strong>We do not sell or rent your data to anyone</strong>, and your measurements never reach
+        a third party. The only data that leaves your device is:
+      </p>
+      <ul>
+        <li><strong>Approximate position (~1 km)</strong> → the weather provider, to service the request (see "Weather")</li>
+        <li><strong>Apple services</strong> → anonymous crash reports, subscription confirmation and, if you enable it, iCloud sync into your own account — governed by <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Apple's Privacy Policy</a></li>
+      </ul>
+      <p>
       </p>
     </div>
 
