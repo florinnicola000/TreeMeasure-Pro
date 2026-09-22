@@ -61,10 +61,60 @@
   }
 
   var observer = null;
+
+  /* Un element apare, apoi i se scoate clasa de animație: altfel tranziția ei (cu întârzierea
+     de apariție) ar rămâne și peste efectele de hover. */
+  function show(el) {
+    el.classList.add("in");
+    var delay = parseFloat(el.style.getPropertyValue("--d")) || 0;
+    setTimeout(function () {
+      el.classList.remove("reveal", "in");
+      el.style.removeProperty("--d");
+    }, delay * 1000 + 900);
+    countUp(el);
+  }
+
   function revealVisible() {
     document.querySelectorAll(".reveal:not(.in)").forEach(function (el) {
       var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight - 40 && r.bottom > 0) el.classList.add("in");
+      var visibleX = r.right > 0 && r.left < window.innerWidth;
+      if (r.top < window.innerHeight - 40 && r.bottom > 0 && visibleX) show(el);
+    });
+  }
+
+  /* Cardurile dintr-o grilă apar pe rând, nu toate deodată. */
+  function staggerChildren() {
+    document.querySelectorAll(".modules, .features, .steps, .outputs, .readout, .gallery").forEach(function (box) {
+      var group = box.closest(".group.reveal");
+      if (group) {
+        group.classList.remove("reveal");
+        var head = group.querySelector(".group-head");
+        if (head) head.classList.add("reveal");
+      }
+      box.classList.remove("reveal");
+      Array.prototype.forEach.call(box.children, function (el, i) {
+        el.classList.add("reveal");
+        el.style.setProperty("--d", (Math.min(i, 6) * 0.08).toFixed(2) + "s");
+      });
+    });
+  }
+
+  /* Cifrele din banda de sub hero cresc de la zero când intră în ecran. */
+  function countUp(root) {
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    root.querySelectorAll(".r-val").forEach(function (el) {
+      var target = el.textContent.trim();
+      if (!/^\d+$/.test(target) || el.dataset.counted) return;
+      el.dataset.counted = "1";
+      var end = parseInt(target, 10), t0 = null, dur = 1100;
+      function step(t) {
+        if (t0 === null) t0 = t;
+        var k = Math.min(1, (t - t0) / dur);
+        el.textContent = String(Math.round(end * (1 - Math.pow(1 - k, 3))));
+        if (k < 1) requestAnimationFrame(step); else el.textContent = target;
+      }
+      requestAnimationFrame(step);
     });
   }
 
@@ -75,12 +125,26 @@
     syncControls();
 
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduce) {
+      // Animațiile SVG (SMIL) nu ascultă de CSS: le oprim explicit, pe un cadru în care
+      // desenul e „așezat” (caliperele fixate, bula în inel), nu pe primul cadru.
+      document.querySelectorAll("svg").forEach(function (svg) {
+        if (!svg.pauseAnimations) return;
+        try { svg.setCurrentTime(2.4); svg.pauseAnimations(); } catch (e) {}
+      });
+    }
+
+    staggerChildren();
+
     if (reduce || !("IntersectionObserver" in window)) {
       document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
     } else {
       observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add("in"); observer.unobserve(e.target); }
+          if (!e.isIntersecting) return;
+          show(e.target);
+          observer.unobserve(e.target);
         });
       }, { threshold: 0.08 });
       document.querySelectorAll(".reveal").forEach(function (el) { observer.observe(el); });

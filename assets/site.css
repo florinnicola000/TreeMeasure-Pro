@@ -73,13 +73,20 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  inset: -6%;
   z-index: -1;
+  animation: contour-drift 60s ease-in-out infinite alternate;
+  will-change: transform;
   background:
     url("contours.svg") center / cover no-repeat,
     radial-gradient(ellipse 70% 55% at 18% 6%, rgba(212, 225, 87, 0.07), transparent 70%),
     radial-gradient(ellipse 60% 50% at 90% 20%, rgba(165, 214, 167, 0.05), transparent 70%),
     linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-0) 100%);
+}
+
+@keyframes contour-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-3%, -2%, 0) scale(1.06); }
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -191,11 +198,26 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; color: var(--text); }
 
 /* ── Carduri ── */
 .card {
-  background: var(--card);
+  background: linear-gradient(180deg, rgba(64, 92, 50, 0.42) 0%, rgba(30, 45, 20, 0.62) 100%);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
+  box-shadow:
+    inset 0 1px 0 rgba(232, 245, 233, 0.07),
+    0 24px 48px -24px rgba(0, 0, 0, 0.75),
+    0 2px 6px rgba(0, 0, 0, 0.25);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
+  /* `translate`, nu `transform`: animația de apariție folosește `transform`, iar cele două s-ar
+     suprascrie una pe alta. */
+  transition: translate .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s ease, border-color .35s ease;
+}
+.module:hover, .feature:hover, .step:hover, .output:hover {
+  translate: 0 -4px;
+  border-color: rgba(212, 225, 87, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(232, 245, 233, 0.09),
+    0 32px 60px -24px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(212, 225, 87, 0.08);
 }
 
 .chip {
@@ -220,20 +242,25 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; color: var(--text); }
 .hero-copy .lead { margin: 22px 0 32px; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
 .hero-note { margin-top: 18px; font-size: 13px; color: var(--text-3); }
-.hero-shot { position: relative; justify-self: center; width: min(360px, 100%); }
+.hero-shot { position: relative; justify-self: center; width: min(280px, 100%); animation: float 7s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 .hero-shot img {
   width: 100%; height: auto; border-radius: 34px;
   -webkit-mask-image: radial-gradient(ellipse 72% 78% at 50% 50%, #000 62%, transparent 100%);
   mask-image: radial-gradient(ellipse 72% 78% at 50% 50%, #000 62%, transparent 100%);
 }
 .hero-shot::after {
-  content: ""; position: absolute; inset: 8% 6%; z-index: -1;
-  background: radial-gradient(ellipse, rgba(0, 229, 255, 0.10), transparent 70%);
-  filter: blur(20px);
+  content: ""; position: absolute; inset: -12% -30%; z-index: -1;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 45%, rgba(212, 225, 87, 0.16), transparent 70%),
+    radial-gradient(ellipse 40% 40% at 55% 60%, rgba(0, 229, 255, 0.12), transparent 70%);
+  filter: blur(24px);
+  animation: glow 7s ease-in-out infinite;
 }
+@keyframes glow { 0%, 100% { opacity: .75; } 50% { opacity: 1; } }
 @media (max-width: 880px) {
   .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-  .hero-shot { width: min(300px, 80%); }
+  .hero-shot { width: min(230px, 64%); }
 }
 
 /* Banda-fișă de sub hero: citirile unui instrument, nu „statistici de marketing”. */
@@ -273,14 +300,16 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; color: var(--text); }
 
 .module { display: flex; flex-direction: column; overflow: hidden; }
 .module-fig {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;
   background:
     linear-gradient(rgba(90, 140, 94, 0.07) 1px, transparent 1px) 0 0 / 20px 20px,
     linear-gradient(90deg, rgba(90, 140, 94, 0.07) 1px, transparent 1px) 0 0 / 20px 20px,
     linear-gradient(160deg, #111B0B, #0B1207);
   border-bottom: 1px solid var(--line-soft);
 }
-.module-fig svg { width: 100%; height: 100%; }
+.module-fig { position: relative; overflow: hidden; }
+/* Absolut: altfel proporția proprie a desenului (16:9) împinge cutia peste aspect-ratio. */
+.module-fig svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .module-body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .module-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .module-title h3 { font-size: 21px; font-weight: 700; }
@@ -317,14 +346,16 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; color: var(--text); }
   scrollbar-width: thin; scrollbar-color: var(--line) transparent;
 }
 .gallery figure {
-  flex: 0 0 auto; width: 250px; scroll-snap-align: center;
+  flex: 0 0 auto; width: 190px; scroll-snap-align: center;
 }
 .gallery img {
   width: 100%; height: auto; aspect-ratio: 560 / 973;
-  border-radius: 28px; background: var(--surface);
+  border-radius: 24px; background: var(--surface);
+  transition: transform .35s cubic-bezier(.2, .8, .2, 1);
   -webkit-mask-image: radial-gradient(ellipse 80% 82% at 50% 50%, #000 68%, transparent 100%);
   mask-image: radial-gradient(ellipse 80% 82% at 50% 50%, #000 68%, transparent 100%);
 }
+.gallery figure:hover img { transform: translateY(-6px) scale(1.02); }
 .gallery figcaption { margin-top: 12px; text-align: center; font-size: 14px; color: var(--text-2); }
 .gallery figcaption .num { display: block; font-size: 11px; color: var(--lime); letter-spacing: 0.1em; margin-bottom: 2px; }
 @media (min-width: 1164px) { .gallery { padding-left: calc((100vw - var(--maxw)) / 2 + 22px); padding-right: calc((100vw - var(--maxw)) / 2 + 22px); } }
@@ -424,11 +455,13 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; color: var(--text); }
 .contact-box .email-text { margin-top: 12px; font-family: var(--mono); font-size: 13px; color: var(--text-3); }
 
 /* ── Reveal ── */
-.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); transition-delay: var(--d, 0s); }
 .js .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  body::before, .hero-shot, .hero-shot::after { animation: none; }
+  .card, .gallery img { transition: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .btn { transition: none; }
 }
