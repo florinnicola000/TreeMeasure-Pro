@@ -56,6 +56,8 @@
     if (!valid(l)) return;
     root.lang = l;
     remember(l);
+    // Un <video> ascuns cu display:none continuă să cânte; fiecare limbă are copia ei.
+    document.querySelectorAll("video").forEach(function (v) { if (!v.paused) v.pause(); });
     syncControls();
     revealVisible();
   }

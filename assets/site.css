@@ -360,6 +360,25 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; color: var(--text); }
 .gallery figcaption .num { display: block; font-size: 11px; color: var(--lime); letter-spacing: 0.1em; margin-bottom: 2px; }
 @media (min-width: 1164px) { .gallery { padding-left: calc((100vw - var(--maxw)) / 2 + 22px); padding-right: calc((100vw - var(--maxw)) / 2 + 22px); } }
 
+/* ── Video ──
+   Fără autoplay: are sunet și 17 MB, iar `preload="none"` nu descarcă nimic până la Play —
+   inclusiv pentru copia din limba ascunsă. */
+.section-video { padding-top: 56px; }
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-0);
+  box-shadow:
+    inset 0 1px 0 rgba(232, 245, 233, 0.07),
+    0 32px 64px -28px rgba(0, 0, 0, 0.85),
+    0 0 90px -30px rgba(212, 225, 87, 0.16);
+}
+.video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; background: var(--bg-0); }
+@media (max-width: 560px) { .section-video { padding-top: 32px; } .video-frame { border-radius: var(--radius-sm); } }
+
 /* ── Ieșiri ── */
 .outputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 860px) { .outputs { grid-template-columns: 1fr; } }
