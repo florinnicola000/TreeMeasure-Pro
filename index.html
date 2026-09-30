@@ -504,13 +504,16 @@
           <article class="card module">
             <div class="module-fig"><svg viewBox="0 0 320 180" role="img" aria-label="Pantă de teren cu unghiul față de orizontală și valoarea în procente"><use href="#ill-slope" width="320" height="180"/></svg></div>
             <div class="module-body">
-              <div class="module-title"><h3>Panta terenului</h3><span class="tag any">Orice iPhone</span></div>
-              <p>Clinometru pentru drumuri forestiere: panta în procente și în grade, pe o scală dublă.</p>
+              <div class="module-title"><h3>Pantă și trasee</h3><span class="tag any">Orice iPhone</span></div>
+              <p>Clinometru pentru drumuri forestiere: panta în procente și în grade, pe o scală dublă, iar din stațiile salvate se desenează traseul drumului.</p>
               <ul class="module-list">
-                <li>Limite pe tipul de drum: principal 12 % · secundar 14 % · pistă 30 %</li>
+                <li>Limite pe tipul de drum: principal 12 % · secundar 14 % · pistă 30 %, sau o limită proprie aleasă pe roată, în grade ori în procente</li>
                 <li>Avertizare când panta depășește limita; citirea se poate bloca</li>
+                <li>Fiecare stație salvată păstrează poziția GPS, panta și direcția vizării</li>
+                <li>Pe hartă și în GeoJSON, traseul apare colorat după limită, gata de deschis în QGIS</li>
+                <li>Stația se poate salva și din Apple Watch, cu Double Tap, fără să atingi telefonul</li>
               </ul>
-              <div class="chips"><span class="chip lime">%</span><span class="chip lime">°</span></div>
+              <div class="chips"><span class="chip lime">%</span><span class="chip lime">°</span><span class="chip">GeoJSON</span></div>
             </div>
           </article>
         </div>
@@ -583,7 +586,7 @@
       <div class="outputs reveal">
         <div class="card output"><span class="fmt">PDF</span><h3>Raport de inventar</h3><p>Antet cu unitatea amenajistică și unitatea de producție, câte o secțiune pe fiecare modul, agregări pe specie și pe clase de diametru, hărți — în română sau engleză.</p></div>
         <div class="card output"><span class="fmt">CSV</span><h3>Tabel pentru analiză</h3><p>Pentru Excel sau Numbers, în unitățile tale, cu D1, D2, Dm, precizia GPS și formula folosită la bușteni.</p></div>
-        <div class="card output"><span class="fmt">GeoJSON</span><h3>Puncte pentru GIS</h3><p>Fiecare înregistrare ca punct cu toate atributele, direct în QGIS sau QField.</p></div>
+        <div class="card output"><span class="fmt">GeoJSON</span><h3>Puncte și trasee pentru GIS</h3><p>Fiecare înregistrare ca punct cu toate atributele; stațiile de pantă se unesc în segmente colorate după limită. Direct în QGIS sau QField.</p></div>
       </div>
       <div class="also reveal"><span>Istoric editabil</span><span>Statistici pe specie și clase</span><span>Hartă cu piețe și trasee</span><span>Backup și restaurare</span></div>
     </div>
@@ -802,13 +805,16 @@
           <article class="card module">
             <div class="module-fig"><svg viewBox="0 0 320 180" role="img" aria-label="A terrain slope with its angle from horizontal and its value in percent"><use href="#ill-slope" width="320" height="180"/></svg></div>
             <div class="module-body">
-              <div class="module-title"><h3>Terrain Slope</h3><span class="tag any">Any iPhone</span></div>
-              <p>A clinometer for forest roads: slope in percent and degrees, on a dual scale.</p>
+              <div class="module-title"><h3>Slope &amp; Routes</h3><span class="tag any">Any iPhone</span></div>
+              <p>A clinometer for forest roads: slope in percent and degrees on a dual scale, and the road's route, drawn from the stations you save.</p>
               <ul class="module-list">
-                <li>Limits per road type: main 12% · secondary 14% · skidding trail 30%</li>
+                <li>Limits per road type: main 12% · secondary 14% · skidding trail 30%, or a custom limit set on a wheel, in degrees or percent</li>
                 <li>Warning when the slope exceeds the limit; the reading can be frozen</li>
+                <li>Every saved station keeps its GPS position, slope and sighting direction</li>
+                <li>On the map and in GeoJSON, the route is colored by the limit, ready to open in QGIS</li>
+                <li>Stations can also be saved from an Apple Watch with Double Tap, without touching the phone</li>
               </ul>
-              <div class="chips"><span class="chip lime">%</span><span class="chip lime">°</span></div>
+              <div class="chips"><span class="chip lime">%</span><span class="chip lime">°</span><span class="chip">GeoJSON</span></div>
             </div>
           </article>
         </div>
@@ -881,7 +887,7 @@
       <div class="outputs reveal">
         <div class="card output"><span class="fmt">PDF</span><h3>Inventory report</h3><p>A header with stand and compartment, a section per module, aggregates by species and diameter class, maps — in English or Romanian.</p></div>
         <div class="card output"><span class="fmt">CSV</span><h3>Table for analysis</h3><p>For Excel or Numbers, in your units, with D1, D2, Dm, GPS accuracy and the formula used for logs.</p></div>
-        <div class="card output"><span class="fmt">GeoJSON</span><h3>Points for GIS</h3><p>Every record as a point with all its attributes, straight into QGIS or QField.</p></div>
+        <div class="card output"><span class="fmt">GeoJSON</span><h3>Points and routes for GIS</h3><p>Every record as a point with all its attributes; slope stations are joined into segments colored by the limit. Straight into QGIS or QField.</p></div>
       </div>
       <div class="also reveal"><span>Editable history</span><span>Charts by species and class</span><span>Map with plots and tracks</span><span>Backup and restore</span></div>
     </div>
