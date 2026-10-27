@@ -48,14 +48,16 @@
   <div class="doc">
     <p class="eyebrow"><span data-lang="ro">Confidențialitate</span><span data-lang="en">Privacy</span></p>
     <h1 class="h-display"><span data-lang="ro">Politică de confidențialitate</span><span data-lang="en">Privacy Policy</span></h1>
-    <p class="updated">Ultima actualizare / Last updated: 16 septembrie 2026</p>
+    <p class="updated"><span data-lang="ro">Ultima actualizare: 27 octombrie 2026</span><span data-lang="en">Last updated: 27 October 2026</span></p>
   </div>
 </section>
 
 <!--
-  Textul de mai jos e preluat neschimbat din versiunea publicată pe 16 sept 2026. El trebuie să
-  spună același lucru ca PrivacyInfo.xcprivacy și chestionarul App Privacy din App Store Connect
-  (vezi CLAUDE.md, „Invariante de livrare"). Redesign-ul a atins doar stilul, nu conținutul.
+  Textul de mai jos e cel publicat pe 16 sept 2026, plus microfonul comenzilor vocale (27 oct 2026:
+  secțiunea „Microfon și comenzi vocale”, o frază în rezumat, descărcarea modelului la serviciile Apple).
+  El trebuie să spună același lucru ca PrivacyInfo.xcprivacy și chestionarul App Privacy din App Store
+  Connect (vezi CLAUDE.md, „Invariante de livrare"). Comenzile vocale nu colectează nimic nou: vocea se
+  recunoaște pe telefon și nu se înregistrează, deci chestionarul rămâne neschimbat.
 -->
 <main id="main" class="doc">
 
@@ -65,7 +67,7 @@
     <div class="section">
       <h2><span class="ico">📋</span>Rezumat</h2>
       <div class="highlight">
-        TreeMeasure Pro nu colectează date personale și nu are conturi, reclame sau urmărire. Măsurătorile tale rămân pe dispozitiv; singurele excepții sunt cele două pe care le alegi tu — sincronizarea iCloud și pastila de vreme din meniu — descrise mai jos.
+        TreeMeasure Pro nu colectează date personale și nu are conturi, reclame sau urmărire. Măsurătorile tale rămân pe dispozitiv; singurele excepții sunt cele două pe care le alegi tu — sincronizarea iCloud și pastila de vreme din meniu — descrise mai jos. Comenzile vocale sunt recunoscute pe dispozitiv: vocea ta nu se înregistrează și nu pleacă nicăieri.
       </div>
       <div class="summary-grid">
         <div class="summary-card">
@@ -160,6 +162,20 @@
     </div>
 
     <div class="section">
+      <h2><span class="ico">🎙️</span>Microfon și comenzi vocale</h2>
+      <p>
+        În Inventar poți alege specia, clasa de calitate și pasul de măsurare cu vocea. Microfonul pornește
+        <strong>doar când apeși butonul 🎙</strong> și se oprește când îl oprești tu sau când ieși din ecran.
+      </p>
+      <ul>
+        <li>Vorbirea este recunoscută <strong>pe dispozitiv</strong>, de recunoașterea vocală a iOS — fără serverele noastre sau ale altcuiva</li>
+        <li>Nu înregistrăm, nu stocăm și nu transmitem sunetul sau textul recunoscut; se păstrează doar specia sau clasa aleasă, ca la o alegere manuală</li>
+        <li>Modelul de recunoaștere pentru limba ta se descarcă o singură dată, de la Apple, prin iOS</li>
+        <li>Poți revoca permisiunile oricând din <strong>Setări iOS → Confidențialitate → Microfon / Recunoaștere vocală</strong>; restul aplicației funcționează la fel</li>
+      </ul>
+    </div>
+
+    <div class="section">
       <h2><span class="ico">💳</span>Abonamente și plăți</h2>
       <p>
         Plățile pentru abonamentul Pro sunt procesate exclusiv prin <strong>Apple App Store</strong>.
@@ -175,7 +191,7 @@
       <p>
         Ecranul principal afișează o pastilă cu vremea de la locul în care te afli, folosită pentru
         avertizările de ploaie și furtună. Aceasta este <strong>singura funcție a aplicației care
-        folosește internetul</strong>.
+        contactează un server din afara Apple</strong>.
       </p>
       <ul>
         <li>Poziția trimisă este <strong>rotunjită la două zecimale (~1 km)</strong> — niciodată fix-ul GPS exact</li>
@@ -208,7 +224,7 @@
       </p>
       <ul>
         <li><strong>Poziția aproximativă (~1 km)</strong> → furnizorul de vreme, pentru a răspunde cererii (vezi „Vremea")</li>
-        <li><strong>Serviciile Apple</strong> → rapoarte de erori anonime, confirmarea abonamentului și, dacă o activezi, sincronizarea iCloud în contul tău — reglementate de <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Politica de Confidențialitate Apple</a></li>
+        <li><strong>Serviciile Apple</strong> → rapoarte de erori anonime, confirmarea abonamentului, descărcarea modelului de recunoaștere vocală (o singură dată, prin iOS, fără date despre tine) și, dacă o activezi, sincronizarea iCloud în contul tău — reglementate de <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Politica de Confidențialitate Apple</a></li>
       </ul>
       <p>
       </p>
@@ -257,7 +273,7 @@
     <div class="section">
       <h2><span class="ico">📋</span>Summary</h2>
       <div class="highlight">
-        TreeMeasure Pro collects no personal data and has no accounts, ads or tracking. Your measurements stay on your device; the only exceptions are the two you choose yourself — iCloud sync and the weather pill in the menu — described below.
+        TreeMeasure Pro collects no personal data and has no accounts, ads or tracking. Your measurements stay on your device; the only exceptions are the two you choose yourself — iCloud sync and the weather pill in the menu — described below. Voice commands are recognized on the device: your voice is never recorded or sent anywhere.
       </div>
       <div class="summary-grid">
         <div class="summary-card">
@@ -351,6 +367,20 @@
     </div>
 
     <div class="section">
+      <h2><span class="ico">🎙️</span>Microphone and Voice Commands</h2>
+      <p>
+        In the Inventory you can choose the species, the quality class and the measuring step by voice. The
+        microphone turns on <strong>only when you press the 🎙 button</strong> and stops when you turn it off or leave the screen.
+      </p>
+      <ul>
+        <li>Speech is recognized <strong>on the device</strong>, by iOS speech recognition — no servers of ours or anyone else's</li>
+        <li>We do not record, store, or transmit the audio or the recognized text; only the chosen species or class is kept, as with a manual choice</li>
+        <li>The recognition model for your language downloads once, from Apple, through iOS</li>
+        <li>You can revoke the permissions at any time in <strong>iOS Settings → Privacy → Microphone / Speech Recognition</strong>; the rest of the app works the same</li>
+      </ul>
+    </div>
+
+    <div class="section">
       <h2><span class="ico">💳</span>Subscriptions and Payments</h2>
       <p>
         Payments for the Pro subscription are processed exclusively through the <strong>Apple App Store</strong>.
@@ -365,7 +395,7 @@
       <h2><span class="ico">🌦️</span>Weather</h2>
       <p>
         The main screen shows a weather pill for your current area, used for the rain and storm
-        warnings. This is the <strong>only feature in the app that uses the internet</strong>.
+        warnings. This is the <strong>only feature in the app that contacts a server outside Apple</strong>.
       </p>
       <ul>
         <li>The position sent is <strong>rounded to two decimals (~1 km)</strong> — never your exact GPS fix</li>
@@ -398,7 +428,7 @@
       </p>
       <ul>
         <li><strong>Approximate position (~1 km)</strong> → the weather provider, to service the request (see "Weather")</li>
-        <li><strong>Apple services</strong> → anonymous crash reports, subscription confirmation and, if you enable it, iCloud sync into your own account — governed by <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Apple's Privacy Policy</a></li>
+        <li><strong>Apple services</strong> → anonymous crash reports, subscription confirmation, the speech recognition model download (once, through iOS, with no data about you) and, if you enable it, iCloud sync into your own account — governed by <a href="https://www.apple.com/legal/privacy/" style="color:var(--green-mid)">Apple's Privacy Policy</a></li>
       </ul>
       <p>
       </p>
