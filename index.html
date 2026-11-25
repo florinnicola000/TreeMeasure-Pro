@@ -37,6 +37,7 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <clipPath id="cp-canopy"><circle cx="160" cy="90" r="70"/></clipPath>
+    <clipPath id="cp-depthband"><rect x="10" y="59" width="300" height="34"><animate attributeName="width" values="0;300;300" keyTimes="0;.4;1" dur="7s" repeatCount="indefinite"/></rect></clipPath>
     <!-- Terenul se estompează spre margini: desenul nu mai umple toată lățimea cardului,
          iar un contur tăiat drept s-ar citi ca o greșeală. -->
     <linearGradient id="fade-x-fill" x1="0" x2="1" y1="0" y2="0">
@@ -285,6 +286,90 @@
       </g>
     </symbol>
 
+    <!-- SilvIA: scoarța citită între brațele clupei, marginea ecranului luminată, propunerea pe un rând.
+         Numele latin al speciei e neutru ca limbă, ca aceeași figură să servească RO și EN. -->
+    <symbol id="ill-silvia" viewBox="0 0 320 180">
+      <rect x="5" y="5" width="310" height="170" rx="18" fill="none" stroke="#D4E157" stroke-width="2.5" stroke-opacity=".3">
+        <animate attributeName="stroke-opacity" values=".22;.68;.22" dur="2.4s" repeatCount="indefinite"/>
+      </rect>
+      <line x1="86" y1="132" x2="234" y2="132" stroke="#5A8C5E" stroke-opacity=".45"/>
+      <rect x="134" y="34" width="52" height="98" fill="#2B3D1F"/>
+      <path d="M141 38v88M150.5 38v88M160 38v88M169.5 38v88M179 38v88" stroke="#405C32" stroke-width="1.2" stroke-dasharray="7 4"/>
+      <path d="M132 56v52h-7M188 56v52h7" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round"/>
+      <rect x="143" y="62" width="34" height="34" rx="3" fill="none" stroke="#4CAF50" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="145" y1="64" x2="175" y2="64" stroke="#4CAF50" stroke-width="1.5">
+        <animate attributeName="y1" values="64;94;64" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="64;94;64" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.44;.46;1" dur="9s" repeatCount="indefinite"/>
+      </line>
+      <g>
+        <rect x="250" y="12" width="58" height="22" rx="11" fill="#0C1308" fill-opacity=".92" stroke="#D4E157" stroke-opacity=".45"/>
+        <line x1="279" y1="16" x2="279" y2="30" stroke="#D4E157" stroke-opacity=".4"/>
+        <text x="264.5" y="27" font-family="ui-monospace, Menlo, monospace" font-size="10" font-weight="700" fill="#D4E157" fill-opacity=".55" text-anchor="middle">AI</text>
+        <circle cx="293.5" cy="23" r="9" fill="#4CAF50" fill-opacity=".2">
+          <animate attributeName="r" values="9;11.5;9" dur="2.4s" repeatCount="indefinite"/>
+        </circle>
+        <path d="M288 28.5c0-7.5 5-11.5 11.5-11.5 0 7.5-4.5 11.5-11.5 11.5Z" fill="#4CAF50"/>
+        <path d="M288.5 28.5 297 20" stroke="#0C1308" stroke-width="1" stroke-opacity=".5"/>
+      </g>
+      <g font-family="ui-monospace, Menlo, monospace" font-size="12" font-weight="700" text-anchor="middle">
+        <rect x="87" y="146" width="146" height="24" rx="12" fill="#0C1308" stroke="#4CAF50" stroke-opacity=".5"/>
+        <text x="160" y="162.5" fill="#D4E157">Fagus sylvatica ›<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.74;.76;1" dur="9s" repeatCount="indefinite"/></text>
+        <text x="160" y="162.5" fill="#4CAF50" opacity="0">✓ Fagus sylvatica<animate attributeName="opacity" values="0;0;1;1" keyTimes="0;.74;.76;1" dur="9s" repeatCount="indefinite"/></text>
+      </g>
+      <g>
+        <circle cx="219" cy="158" r="6" fill="none" stroke="#D4E157" stroke-width="1.5" opacity="0">
+          <animate attributeName="r" values="6;6;18;18" keyTimes="0;.6;.75;1" dur="9s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0;0;.8;0;0" keyTimes="0;.59;.62;.75;1" dur="9s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="219" cy="158" r="5" fill="#D4E157" fill-opacity=".7" opacity="0">
+          <animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.59;.62;.75;1" dur="9s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </symbol>
+
+    <!-- Banda de adâncime: două trunchiuri lipite în imagine, banda de la cruce în care cel din față iese alb,
+         clupa magenta pe silueta din bandă și brațul cian care sare de pe trunchiul din spate pe cel vizat -->
+    <symbol id="ill-depthband" viewBox="0 0 320 180">
+      <line x1="84" y1="136" x2="236" y2="136" stroke="#5A8C5E" stroke-opacity=".45"/>
+      <rect x="168" y="38" width="36" height="98" fill="#2B3D1F" fill-opacity=".85"/>
+      <rect x="138" y="32" width="44" height="104" fill="#2B3D1F"/>
+      <path d="M145 36v92M157 36v92M169 36v92M179 36v92" stroke="#405C32" stroke-width="1.2" stroke-dasharray="7 4"/>
+      <line x1="182" y1="32" x2="182" y2="136" stroke="#405C32" stroke-opacity=".35"/>
+      <g clip-path="url(#cp-depthband)">
+        <rect x="10" y="59" width="300" height="34" fill="#232323"/>
+        <rect x="168" y="59" width="36" height="34" fill="#7C7C7C"/>
+        <rect x="138" y="59" width="44" height="34" fill="#EDEDED"/>
+      </g>
+      <rect x="10" y="59" width="300" height="34" fill="none" stroke="#D4E157" stroke-opacity=".35"/>
+      <line x1="10" y1="56" x2="10" y2="96" stroke="#4CAF50" stroke-width="1.5">
+        <animate attributeName="x1" values="10;310;310" keyTimes="0;.4;1" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="x2" values="10;310;310" keyTimes="0;.4;1" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.39;.41;1" dur="7s" repeatCount="indefinite"/>
+      </line>
+      <g stroke="#FF2D95" stroke-width="2.5" stroke-linecap="round" opacity="0">
+        <path d="M138 55v42M182 55v42"/>
+        <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;.39;.44;1" dur="7s" repeatCount="indefinite"/>
+      </g>
+      <path d="M138 99v25h-7" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round"/>
+      <path d="M204 99v25h7" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 0;-22 0;-22 0" keyTimes="0;.4;.6;1" dur="7s" calcMode="spline" keySplines="0 0 1 1;.4 0 .2 1;0 0 1 1" repeatCount="indefinite"/>
+      </path>
+      <g>
+        <rect x="250" y="12" width="58" height="22" rx="11" fill="#0C1308" fill-opacity=".92" stroke="#D4E157" stroke-opacity=".45"/>
+        <rect x="252" y="14" width="26" height="18" rx="9" fill="#4CAF50" fill-opacity=".25">
+          <animate attributeName="fill-opacity" values=".16;.42;.16" dur="2.4s" repeatCount="indefinite"/>
+        </rect>
+        <line x1="279" y1="16" x2="279" y2="30" stroke="#D4E157" stroke-opacity=".4"/>
+        <text x="264.5" y="27" font-family="ui-monospace, Menlo, monospace" font-size="10" font-weight="700" fill="#4CAF50" text-anchor="middle">AI</text>
+        <path d="M288 28.5c0-7.5 5-11.5 11.5-11.5 0 7.5-4.5 11.5-11.5 11.5Z" fill="#D4E157" fill-opacity=".55"/>
+      </g>
+      <g font-family="ui-monospace, Menlo, monospace" font-size="12" font-weight="700" text-anchor="middle">
+        <rect x="236" y="146" width="74" height="24" rx="6" fill="#0C1308" stroke="#00E5FF" stroke-opacity=".6"/>
+        <text x="273" y="162.5" fill="#EEF5EA">Ø 42 cm</text>
+      </g>
+    </symbol>
+
     <!-- Pictograme pentru funcțiile transversale -->
     <symbol id="i-watch" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6" width="11" height="12" rx="3"/><path d="M9 6l.6-3h4.8L15 6M9 18l.6 3h4.8L15 18M12 9.5V12l1.6 1"/></g></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></g></symbol>
@@ -309,12 +394,14 @@
     <nav class="nav-links" aria-label="Primary">
       <span class="lang-inline" data-lang="ro">
         <a href="#fro" class="hs">Module</a>
+        <a href="#airo" class="hs">SilvIA</a>
         <a href="#hro" class="hs">Cum funcționează</a>
         <a href="#tro" class="hs">Rapoarte</a>
         <a href="https://apps.apple.com/ro/app/treemeasure-pro/id6760644907" class="nav-cta" target="_blank" rel="noopener">Descarcă</a>
       </span>
       <span class="lang-inline" data-lang="en">
         <a href="#fen" class="hs">Modules</a>
+        <a href="#aien" class="hs">SilvIA</a>
         <a href="#hen" class="hs">How it works</a>
         <a href="#ten" class="hs">Reports</a>
         <a href="https://apps.apple.com/app/treemeasure-pro/id6760644907" class="nav-cta" target="_blank" rel="noopener">Download</a>
@@ -517,6 +604,46 @@
             </div>
           </article>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="airo">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Inteligență pe telefon</p>
+        <h2 class="h-section">Două ajutoare, pornite de tine, oprite când nu-ți trebuie.</h2>
+        <p class="lead">Amândouă stau în capsula din dreapta sus, la Inventar și la Piețe: frunza pornește SilvIA, „AI” pornește banda de adâncime. Rulează pe telefon, fără internet, și nu schimbă nimic în locul tău.</p>
+      </div>
+      <div class="modules reveal">
+        <article class="card module">
+          <div class="module-fig"><svg viewBox="0 0 320 180" role="img" aria-label="Scoarța citită între brațele clupei, marginea ecranului luminată și propunerea de specie pe un rând"><use href="#ill-silvia" width="320" height="180"/></svg></div>
+          <div class="module-body">
+            <div class="module-title"><h3>SilvIA</h3><span class="tag any">Orice iPhone · pe telefon</span></div>
+            <p>Asistenta care recunoaște specia după scoarță și învață de la tine. Propune specia, dar nu o schimbă niciodată singură.</p>
+            <ul class="module-list">
+              <li>O pornești din frunza capsulei din dreapta sus; marginea ecranului se luminează galben cât e activă</li>
+              <li>Îți spune într-un rând ce face: „Analizez scoarța…”, apoi „Propun: Fag ›”</li>
+              <li>Propunerea intră în înregistrare doar dacă o atingi tu</li>
+              <li>Când nu e sigură și alegi tu specia, păstrează o poză a scoarței ca să învețe — poza rămâne în aplicație</li>
+            </ul>
+            <div class="chips"><span class="chip lime">Specia</span><span class="chip lime">Scoarță</span><span class="chip">Fără internet</span><span class="chip">Învață de la tine</span></div>
+          </div>
+        </article>
+        <article class="card module">
+          <div class="module-fig"><svg viewBox="0 0 320 180" role="img" aria-label="Două trunchiuri lipite în imagine, despărțite în banda de la cruce: cel din față iese alb, cel din spate rămâne gri, iar brațul clupei sare pe trunchiul vizat"><use href="#ill-depthband" width="320" height="180"/></svg></div>
+          <div class="module-body">
+            <div class="module-title"><h3>Banda de adâncime</h3><span class="tag any">Orice iPhone · pe telefon</span></div>
+            <p>Arată ce e aproape și ce e departe, ca diametrul să se măsoare pe trunchiul vizat, nu pe cel din spate.</p>
+            <ul class="module-list">
+              <li>În fâșia de la cruce, imaginea devine hartă de adâncime: ce e aproape iese alb, ce e în spate rămâne gri</li>
+              <li>Clupa se prinde pe marginile trunchiului vizat, chiar când în imagine e lipit de altul</li>
+              <li>Un braț magenta e pus de AI, acolo unde imaginea n-a găsit marginea</li>
+              <li>O pornești din „AI”, la nevoie: la fiecare deschidere a modulului pornește oprită, iar așa telefonul se încălzește mai puțin</li>
+            </ul>
+            <div class="chips"><span class="chip lime">Ø</span><span class="chip lime">Aproape = alb</span><span class="chip">Trunchiuri suprapuse</span><span class="chip">Fără internet</span></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -818,6 +945,46 @@
             </div>
           </article>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="aien">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">AI on the phone</p>
+        <h2 class="h-section">Two helpers you turn on, and off when you don't need them.</h2>
+        <p class="lead">Both live in the capsule at the top right, in the Inventory and the Plots: the leaf turns SilvIA on, "AI" turns the depth band on. They run on the phone, with no internet, and change nothing on your behalf.</p>
+      </div>
+      <div class="modules reveal">
+        <article class="card module">
+          <div class="module-fig"><svg viewBox="0 0 320 180" role="img" aria-label="The bark read between the caliper arms, the screen edge glowing, and the species suggestion on one line"><use href="#ill-silvia" width="320" height="180"/></svg></div>
+          <div class="module-body">
+            <div class="module-title"><h3>SilvIA</h3><span class="tag any">Any iPhone · on device</span></div>
+            <p>The assistant that recognises the species by its bark and learns from you. It suggests the species, but never changes it by itself.</p>
+            <ul class="module-list">
+              <li>Turn it on from the leaf in the capsule at the top right; the edge of the screen glows yellow while it is on</li>
+              <li>It tells you in one line what it is doing: "Analysing the bark…", then "I suggest: Beech ›"</li>
+              <li>The suggestion goes into the record only if you tap it</li>
+              <li>When it is not sure and you pick the species, it keeps a photo of the bark to learn from — the photo stays in the app</li>
+            </ul>
+            <div class="chips"><span class="chip lime">Species</span><span class="chip lime">Bark</span><span class="chip">No internet</span><span class="chip">Learns from you</span></div>
+          </div>
+        </article>
+        <article class="card module">
+          <div class="module-fig"><svg viewBox="0 0 320 180" role="img" aria-label="Two trunks merged in the image, separated in the band at the crosshair: the near one shows white, the one behind stays grey, and the caliper arm jumps onto the trunk you aim at"><use href="#ill-depthband" width="320" height="180"/></svg></div>
+          <div class="module-body">
+            <div class="module-title"><h3>Depth band</h3><span class="tag any">Any iPhone · on device</span></div>
+            <p>Shows what is near and what is far, so the diameter is measured on the trunk you aim at, not on the one behind it.</p>
+            <ul class="module-list">
+              <li>In the band at the crosshair, the image becomes a depth map: near shows white, what is behind stays grey</li>
+              <li>The calipers lock onto the edges of the trunk you aim at, even when the image merges it with another</li>
+              <li>A magenta arm was placed by the AI, where the image missed the edge</li>
+              <li>Turn it on from "AI" when you need it: it starts off each time you open the module, and that way the phone stays cooler</li>
+            </ul>
+            <div class="chips"><span class="chip lime">Ø</span><span class="chip lime">Near = white</span><span class="chip">Overlapping trunks</span><span class="chip">No internet</span></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
